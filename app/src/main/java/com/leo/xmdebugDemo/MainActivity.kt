@@ -1,7 +1,8 @@
-package com.leo.xmdebug
+package com.leo.xmdebugDemo
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.leo.xmdebug.R
 
 class MainActivity : AppCompatActivity() {
 
