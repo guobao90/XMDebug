@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/cld_float_entrance_home_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cld_selector_default_white_pressed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cld_enter_home"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/cld_svg_icon_arrow_right_wrapper"
+            android:drawableRight="@drawable/cld_svg_icon_arrow_right_wrapper"
+            android:gravity="center_vertical"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/cld_text_size_medium" />
+
+    </LinearLayout>
+
+</LinearLayout>

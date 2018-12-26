@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/cld_float_icon_iv"
+        android:layout_width="40dp"
+        android:layout_height="40dp"
+        android:layout_gravity="top|start"
+        android:layout_marginTop="20dp"
+        app:srcCompat="@drawable/cld_svg_float_icon"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:id="@+id/cld_float_content_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:orientation="vertical"
+        android:padding="1dp"
+        android:visibility="gone"
+        tools:visibility="visible">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/cld_float_container_rv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+        <include layout="@layout/cld_divider" />
+
+        <TextView
+            android:id="@+id/cld_float_close_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/cld_selector_default_white_pressed"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/cld_close"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+    </LinearLayout>
+
+</LinearLayout>

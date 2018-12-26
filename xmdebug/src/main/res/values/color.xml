@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="cld_all_page_bg_color">#F4F4F4</color>
+    <color name="cld_divider">#E8E8E8</color>
+    <color name="cld_hint">#FFDDDDDD</color>
+    <color name="cld_normal_blue">#3AAFFD</color>
+    <color name="cld_normal_gray">#C0C0C0</color>
+    <color name="cld_normal_green">#3CC144</color>
+    <color name="cld_normal_red">#FF6868</color>
+    <color name="cld_normal_yellow">#FFC53A</color>
+    <color name="cld_pressed_blue">#2E91D3</color>
+    <color name="cld_pressed_gray">#EFEFEF</color>
+    <color name="cld_pressed_green">#3B8F40</color>
+    <color name="cld_pressed_red">#d75555</color>
+    <color name="cld_text_dark">#333333</color>
+    <color name="cld_text_light">#FF9A9A9A</color>
+</resources>

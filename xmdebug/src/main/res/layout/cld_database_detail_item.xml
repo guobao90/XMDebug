@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/cld_database_detail_data_tv"
+        android:layout_width="60dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:lines="1"
+        android:ellipsize="end"
+        android:padding="5dp"
+        android:textColor="@color/cld_text_dark"
+        android:textSize="@dimen/cld_text_size_small"
+        tools:text="99999"
+        android:background="@drawable/cld_selector_rounded_white_pressed"/>
+
+</LinearLayout>

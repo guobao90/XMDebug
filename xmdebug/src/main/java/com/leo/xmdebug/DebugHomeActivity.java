@@ -3,6 +3,8 @@ package com.leo.xmdebug;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Debug;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 
 import com.leo.baseui.mutiType.base.Items;
 
@@ -15,7 +17,7 @@ public class DebugHomeActivity extends DebugBaseActivity {
 
     public static void enterActivity(Context context) {
         Intent intent = new Intent(context, DebugHomeActivity.class);
-        intent.setFlags(268435456);
+//        intent.setFlags(268435456);
         context.startActivity(intent);
     }
 

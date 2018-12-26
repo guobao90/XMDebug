@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:padding="5dp"
+        android:text="@string/cld_network"
+        android:textColor="@color/cld_text_light"
+        android:textSize="@dimen/cld_text_size_small" />
+
+    <include layout="@layout/cld_divider" />
+
+    <LinearLayout
+        android:id="@+id/cld_network_change_cldata_env_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cld_selector_default_white_pressed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:text="@string/cld_change_network_env"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+
+        <TextView
+            android:id="@+id/cld_network_cldata_env"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:drawableEnd="@drawable/cld_svg_icon_arrow_right_wrapper"
+            android:drawableRight="@drawable/cld_svg_icon_arrow_right_wrapper"
+            android:gravity="center_vertical"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/cld_text_size_medium"
+            tools:text="测试环境" />
+
+    </LinearLayout>
+
+    <include layout="@layout/cld_divider" />
+
+    <LinearLayout
+        android:id="@+id/cld_network_change_clad_city_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cld_selector_default_white_pressed"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/cld_change_ad_city"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+
+        <EditText
+            android:id="@+id/cld_network_city_code_et"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:layout_weight="1"
+            android:background="@null"
+            android:gravity="end|center_vertical"
+            android:hint="@string/cld_please_input_city_code"
+            android:imeOptions="actionGo"
+            android:inputType="number"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/g_text_size_medium" />
+
+    </LinearLayout>
+
+    <include layout="@layout/cld_divider" />
+
+</LinearLayout>

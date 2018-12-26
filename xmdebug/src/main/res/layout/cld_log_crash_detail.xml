@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/cld_crash_time"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+
+        <TextView
+            android:id="@+id/cld_log_crash_detail_time_tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginStart="20dp"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/cld_text_size_medium"
+            tools:text="2017-11-11 11:11:11" />
+
+    </LinearLayout>
+
+    <include layout="@layout/cld_divider" />
+
+    <ImageView
+        android:id="@+id/cld_log_crash_detail_screen_shot_iv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:color/white"
+        android:padding="10dp"
+        android:scaleType="centerInside"
+        tools:ignore="ContentDescription"
+        tools:src="@drawable/clui_alert_wifi" />
+
+    <include layout="@layout/cld_divider" />
+
+    <LinearLayout
+        android:id="@+id/cld_log_crash_detail_dump_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/cld_selector_default_white_pressed"
+        android:gravity="center_vertical"
+        android:orientation="horizontal"
+        android:padding="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="@string/cld_dump_file"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_large" />
+
+        <TextView
+            android:id="@+id/cld_log_crash_detail_dump_tv"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_marginLeft="10dp"
+            android:layout_marginStart="10dp"
+            android:layout_height="wrap_content"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/cld_text_size_medium" />
+
+    </LinearLayout>
+
+    <include layout="@layout/cld_divider" />
+
+    <LinearLayout
+        android:id="@+id/cld_log_crash_detail_stack_trace_ll"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:padding="5dp"
+            android:text="@string/cld_stack_trace"
+            android:textColor="@color/cld_text_light"
+            android:textSize="@dimen/cld_text_size_small" />
+
+        <include layout="@layout/cld_divider" />
+
+        <TextView
+            android:id="@+id/cld_log_crash_detail_stack_trace_tv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:textColor="@color/cld_text_dark"
+            android:textSize="@dimen/cld_text_size_medium"
+            tools:text="崩爆一切" />
+
+    </LinearLayout>
+
+</LinearLayout>
