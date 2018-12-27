@@ -23,10 +23,17 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.leo.baseui.mutiType.base.Items;
+import com.leo.xmdebug.R;
 import com.leo.xmdebug.main.adapter.DebugListAdapter;
 import com.leo.xmdebug.widget.floating.DebugFloatingItemDecoration;
+import com.leo.xmdebug.widget.floating.model.DebugFloatingEntranceMultiModel;
 import com.leo.xmdebug.widget.floating.model.DebugFloatingSwitchMultiModel;
+import com.leo.xmdebug.widget.floating.model.DebugFloatingThreeDimensionMultiModel;
+import com.leo.xmdebug.widget.floating.model.DebugFloatingViewsMultiModel;
+import com.leo.xmdebug.widget.floating.provider.DebugFloatingEntranceMultiProvider;
 import com.leo.xmdebug.widget.floating.provider.DebugFloatingSwitchMultiProvider;
+import com.leo.xmdebug.widget.floating.provider.DebugFloatingThreeDimensionMultiProvider;
+import com.leo.xmdebug.widget.floating.provider.DebugFloatingViewsMultiProvider;
 
 import java.util.Random;
 
@@ -79,18 +86,18 @@ public class DebugFloatingWindow {
     }
 
     private void initView() {
-        this.floatingView = LayoutInflater.from(this.applicationContext).inflate(layout.cld_float_window, (ViewGroup)null, false);
+        this.floatingView = LayoutInflater.from(this.applicationContext).inflate(R.layout.cld_float_window, (ViewGroup)null, false);
         this.applicationContext = this.applicationContext.getApplicationContext();
-        this.iconView = (ImageView)this.floatingView.findViewById(id.cld_float_icon_iv);
-        this.container = (RecyclerView)this.floatingView.findViewById(id.cld_float_container_rv);
-        this.closeTextView = (TextView)this.floatingView.findViewById(id.cld_float_close_tv);
-        this.contentLinearLayout = (LinearLayout)this.floatingView.findViewById(id.cld_float_content_ll);
+        this.iconView = (ImageView)this.floatingView.findViewById(R.id.cld_float_icon_iv);
+        this.container = (RecyclerView)this.floatingView.findViewById(R.id.cld_float_container_rv);
+        this.closeTextView = (TextView)this.floatingView.findViewById(R.id.cld_float_close_tv);
+        this.contentLinearLayout = (LinearLayout)this.floatingView.findViewById(R.id.cld_float_content_ll);
         this.floatingView.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 switch(keyCode) {
                 case 4:
-                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(8);
+                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(View.GONE);
                     return true;
                 default:
                     return false;
@@ -100,16 +107,16 @@ public class DebugFloatingWindow {
         this.closeTextView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DebugFloatingWindow.this.contentLinearLayout.setVisibility(8);
+                DebugFloatingWindow.this.contentLinearLayout.setVisibility(View.GONE);
             }
         });
         this.iconView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (DebugFloatingWindow.this.contentLinearLayout.getVisibility() == 0) {
-                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(8);
-                } else if (DebugFloatingWindow.this.contentLinearLayout.getVisibility() == 8) {
-                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(0);
+                if (DebugFloatingWindow.this.contentLinearLayout.getVisibility() == View.VISIBLE) {
+                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(View.GONE);
+                } else if (DebugFloatingWindow.this.contentLinearLayout.getVisibility() == View.GONE) {
+                    DebugFloatingWindow.this.contentLinearLayout.setVisibility(View.VISIBLE);
                 }
 
             }
@@ -146,7 +153,7 @@ public class DebugFloatingWindow {
     private void initLayoutParams() {
         this.screenHeight = this.applicationContext.getResources().getDisplayMetrics().heightPixels;
         this.screenWidth = this.applicationContext.getResources().getDisplayMetrics().widthPixels;
-        this.layoutParams = new ViewGroup.LayoutParams();
+        this.layoutParams = new WindowManager.LayoutParams();
         this.layoutParams.type = 2003;
         this.layoutParams.flags = 8;
         this.layoutParams.gravity = 8388659;
@@ -229,7 +236,7 @@ public class DebugFloatingWindow {
 
     public void close() {
         if (this.showing) {
-            this.contentLinearLayout.setVisibility(8);
+            this.contentLinearLayout.setVisibility(View.GONE);
             this.windowManager.removeView(this.floatingView);
             this.viewsProvider.close();
             this.showing = false;
