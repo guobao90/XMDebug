@@ -7,6 +7,13 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.leo.baseui.mutiType.base.Items;
+import com.leo.xmdebug.home.DebugSwitchMultiProvider;
+import com.leo.xmdebug.home.model.DebugSwitchMultiModel;
+import com.leo.xmdebug.main.DebugTopMultiProvider;
+import com.leo.xmdebug.main.adapter.DebugListAdapter;
+import com.leo.xmdebug.main.model.DebugTopMultiModel;
+import com.leo.xmdebug.widget.floating.model.DebugBaseInfoMultiModel;
+import com.leo.xmdebug.widget.floating.provider.DebugBaseInfoMultiProvider;
 
 public class DebugHomeActivity extends DebugBaseActivity {
     private RecyclerView contentRv;
@@ -36,7 +43,7 @@ public class DebugHomeActivity extends DebugBaseActivity {
     }
 
     private void initViews() {
-        this.contentRv = (RecyclerView)this.findViewById(id.content_rv);
+        this.contentRv = this.findViewById(R.id.content_rv);
     }
 
     private void initData() {
@@ -44,7 +51,6 @@ public class DebugHomeActivity extends DebugBaseActivity {
         this.adapter.register(DebugTopMultiModel.class, new DebugTopMultiProvider(this));
         this.adapter.register(DebugBaseInfoMultiModel.class, new DebugBaseInfoMultiProvider(this));
         this.adapter.register(DebugSwitchMultiModel.class, new DebugSwitchMultiProvider(this));
-        this.adapter.register(DebugNetworkMultiModel.class, new DebugNetworkMultiProvider(this));
         this.adapter.register(DebugLocalDataMultiModel.class, new DebugLocalDataMultiProvider(this));
         this.adapter.register(DebugReactNativeMultiModel.class, new DebugReactNativeMultiProvider(this));
         this.adapter.register(DebugEntranceMultiModel.class, new DebugEntranceMultiProvider(this));

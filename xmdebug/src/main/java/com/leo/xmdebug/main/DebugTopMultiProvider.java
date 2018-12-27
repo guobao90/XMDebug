@@ -12,6 +12,7 @@ import android.widget.Switch;
 import com.leo.baseui.mutiType.base.ItemViewProvider;
 import com.leo.xmdebug.R;
 import com.leo.xmdebug.main.model.DebugTopMultiModel;
+import com.leo.xmdebug.widget.DebugFloatingWindow;
 
 public class DebugTopMultiProvider extends ItemViewProvider<DebugTopMultiModel, DebugTopMultiProvider.TopViewHolder> {
     private Activity activity;
@@ -50,7 +51,7 @@ public class DebugTopMultiProvider extends ItemViewProvider<DebugTopMultiModel, 
 
         TopViewHolder(View itemView) {
             super(itemView);
-            this.floatingWindowSwitch = (Switch)itemView.findViewById(id.cld_floating_window_switch);
+            this.floatingWindowSwitch = (Switch)itemView.findViewById(R.id.cld_floating_window_switch);
         }
     }
 }

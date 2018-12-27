@@ -3,9 +3,9 @@ package com.leo.xmdebug;
 import android.os.Bundle;
 
 import com.leo.baseui.dialog.TipsBaseDialog;
-import com.leo.baseui.ui.NoStatusBarActivity;
+import com.leo.baseui.ui.BaseActivity;
 
-public abstract class DebugBaseActivity extends NoStatusBarActivity {
+public abstract class DebugBaseActivity extends BaseActivity {
     protected TipsBaseDialog tipDialog;
 
     public DebugBaseActivity() {
