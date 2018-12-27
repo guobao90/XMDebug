@@ -3,9 +3,12 @@ package com.leo.xmdebug.widget;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.ColorFilter;
+import android.graphics.PorterDuff.Mode;
 import android.graphics.PorterDuffColorFilter;
+import android.os.Build;
 import android.os.Handler;
 import android.os.Looper;
+import android.support.annotation.RequiresApi;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.GestureDetector;
@@ -23,13 +26,14 @@ import com.leo.baseui.mutiType.base.Items;
 import com.leo.xmdebug.main.adapter.DebugListAdapter;
 import com.leo.xmdebug.widget.floating.DebugFloatingItemDecoration;
 import com.leo.xmdebug.widget.floating.model.DebugFloatingSwitchMultiModel;
+import com.leo.xmdebug.widget.floating.provider.DebugFloatingSwitchMultiProvider;
 
 import java.util.Random;
 
 public class DebugFloatingWindow {
     private static DebugFloatingWindow instance;
     private WindowManager windowManager;
-    private ViewGroup.LayoutParams layoutParams;
+    private WindowManager.LayoutParams layoutParams;
     private View floatingView;
     private Context applicationContext;
     private Handler handler;
@@ -156,8 +160,10 @@ public class DebugFloatingWindow {
         this.layoutParams.y = 0;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.CUPCAKE)
     private void initDrag() {
         this.detector = new GestureDetector(this.applicationContext, new GestureDetector.SimpleOnGestureListener() {
+            @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
                 ViewGroup.LayoutParams var10000 = DebugFloatingWindow.this.layoutParams;
                 var10000.x = (int)((float)var10000.x + distanceX);
