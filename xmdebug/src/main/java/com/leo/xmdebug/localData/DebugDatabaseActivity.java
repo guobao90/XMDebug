@@ -25,6 +25,7 @@ public class DebugDatabaseActivity extends DebugInfoDetailsActivity {
         ArrayList<DebugInfoDetail> list = new ArrayList();
         DebugInfoDetail detail = new DebugInfoDetail(DebugInfoDetail.InfoType.DATABASE_LIST);
         list.add(detail);
+
         return list;
     }
 }
