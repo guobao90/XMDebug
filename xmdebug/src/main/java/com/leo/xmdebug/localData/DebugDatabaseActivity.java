@@ -24,6 +24,8 @@ public class DebugDatabaseActivity extends DebugInfoDetailsActivity {
         return "数据库";
     }
 
+
+    
     protected ArrayList<DebugInfoDetail> getDetailsInfo() {
         ArrayList<DebugInfoDetail> list = new ArrayList();
         DebugInfoDetail detail = new DebugInfoDetail(DebugInfoDetail.InfoType.DATABASE_LIST);
