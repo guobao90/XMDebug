@@ -15,9 +15,6 @@ public class DebugDatabaseActivity extends DebugInfoDetailsActivity {
     public static void enterActivity(Context context) {
         Intent intent = new Intent(context, DebugDatabaseActivity.class);
         context.startActivity(intent);
-
-
-
     }
 
     protected String getTitleString() {
