@@ -16,6 +16,12 @@ import com.leo.baseui.mutiType.base.Items;
 import com.leo.xmdebug.base.DebugInfoDetailsDataProvider;
 import com.leo.xmdebug.detail.DebugInfoDetail;
 import com.leo.xmdebug.detail.model.DebugInfoDetailsNormalModel;
+import com.leo.xmdebug.home.model.DebugCrashLogDetailModel;
+import com.leo.xmdebug.home.model.DebugInfoDetailsInstalledAppModel;
+import com.leo.xmdebug.home.provider.DebugCrashLogDetailMultiProvider;
+import com.leo.xmdebug.home.provider.DebugDatabaseMultiProvider;
+import com.leo.xmdebug.home.provider.DebugFilesMultiProvider;
+import com.leo.xmdebug.home.provider.DebugInfoDetailsInstalledAppMultiProvider;
 import com.leo.xmdebug.main.adapter.DebugListAdapter;
 import com.leo.xmdebug.mt.DebugDatabaseMultiModel;
 import com.leo.xmdebug.mt.DebugInfoDetailsActivitiesMultiModel;
@@ -24,6 +30,7 @@ import com.leo.xmdebug.mt.DebugInfoDetailsNormalMultiModel;
 import com.leo.xmdebug.mt.DebugInfoDetailsNormalMultiProvider;
 import com.leo.xmdebug.mt.DebugInfoDetailsPermissionsMultiModel;
 import com.leo.xmdebug.mt.DebugInfoDetailsPermissionsMultiProvider;
+import com.leo.xmdebug.mt.model.DebugFilesMultiModel;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -57,7 +64,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         if (this.contentView == null) {
             this.contentView = inflater.inflate(R.layout.cld_details_container, container, false);
-            this.containerRv = (RecyclerView)this.contentView.findViewById(R.id.cld_details_rv);
+            this.containerRv = (RecyclerView) this.contentView.findViewById(R.id.cld_details_rv);
             this.initData();
         }
 
@@ -79,7 +86,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
             @NonNull
             public Class onFlattenClass(@NonNull Object item) {
                 if (item instanceof DebugInfoDetailsNormalModel) {
-                    DebugInfoDetailsNormalModel model = (DebugInfoDetailsNormalModel)item;
+                    DebugInfoDetailsNormalModel model = (DebugInfoDetailsNormalModel) item;
                     if (model.getType() == DebugInfoDetailsNormalModel.NormalInfoType.NORMAL) {
                         return DebugInfoDetailsNormalMultiModel.class;
                     }
@@ -113,8 +120,8 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
                     DebugInfoDetailsFragment.this.detailsProvider = new DebugInfoDetailsDataProvider(DebugInfoDetailsFragment.this.getContext());
                     Iterator var1 = DebugInfoDetailsFragment.this.details.iterator();
 
-                    while(var1.hasNext()) {
-                        DebugInfoDetail detail = (DebugInfoDetail)var1.next();
+                    while (var1.hasNext()) {
+                        DebugInfoDetail detail = (DebugInfoDetail) var1.next();
                         List<Object> data = DebugInfoDetailsFragment.this.detailsProvider.getDetail(detail);
                         if (data != null && !data.isEmpty()) {
                             DebugInfoDetailsFragment.this.items.addAll(data);
@@ -134,13 +141,12 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
     }
 
     private void registerProvider() {
-        this.adapter.register(DebugInfoDetailsNormalMultiModel.class, new DebugInfoDetailsNormalMultiProvider((DebugInfoDetailsActivity)this.getActivity()));
+        this.adapter.register(DebugInfoDetailsNormalMultiModel.class, new DebugInfoDetailsNormalMultiProvider((DebugInfoDetailsActivity) this.getActivity()));
         this.adapter.register(DebugInfoDetailsActivitiesMultiModel.class, new DebugInfoDetailsActivitiesMultiProvider(this.getActivity()));
         this.adapter.register(DebugInfoDetailsPermissionsMultiModel.class, new DebugInfoDetailsPermissionsMultiProvider(this.getContext()));
-        // TODO: leo 2018/12/30  
-        //        this.adapter.register(DebugInfoDetailsInstalledAppModel.class, new DebugInfoDetailsInstalledAppMultiProvider());
-//        this.adapter.register(DebugCrashLogDetailModel.class, new DebugCrashLogDetailMultiProvider(this.getContext()));
-//        this.adapter.register(DebugFilesMultiModel.class, new DebugFilesMultiProvider((DebugInfoDetailsActivity)this.getActivity()));
-//        this.adapter.register(DebugDatabaseMultiModel.class, new DebugDatabaseMultiProvider(this.getContext()));
+        this.adapter.register(DebugInfoDetailsInstalledAppModel.class, new DebugInfoDetailsInstalledAppMultiProvider());
+        this.adapter.register(DebugCrashLogDetailModel.class, new DebugCrashLogDetailMultiProvider(this.getContext()));
+        this.adapter.register(DebugFilesMultiModel.class, new DebugFilesMultiProvider((DebugInfoDetailsActivity) this.getActivity()));
+        this.adapter.register(DebugDatabaseMultiModel.class, new DebugDatabaseMultiProvider(this.getContext()));
     }
 }

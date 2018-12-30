@@ -43,6 +43,13 @@
                   android:screenOrientation="portrait"
                   />
 
+        <activity android:name=".localData.DebugFilesActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
+
+        <activity android:name=".home.DebugDatabaseDetailsActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

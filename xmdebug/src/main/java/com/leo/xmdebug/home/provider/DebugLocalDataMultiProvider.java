@@ -16,6 +16,7 @@ import com.leo.baseui.mutiType.base.ItemViewProvider;
 import com.leo.xmdebug.R;
 import com.leo.xmdebug.home.model.DebugLocalDataMultiModel;
 import com.leo.xmdebug.localData.DebugDatabaseActivity;
+import com.leo.xmdebug.localData.DebugFilesActivity;
 import com.leo.xmdebug.localData.DebugSharedPreferenceActivity;
 
 import java.io.File;
@@ -46,7 +47,7 @@ public class DebugLocalDataMultiProvider extends ItemViewProvider<DebugLocalData
             File[] var6 = databaseDir.listFiles();
             int var7 = var6.length;
 
-            for(int var8 = 0; var8 < var7; ++var8) {
+            for (int var8 = 0; var8 < var7; ++var8) {
                 File file = var6[var8];
                 if (!file.getName().endsWith("-journal")) {
                     ++databaseNumber;
@@ -62,15 +63,14 @@ public class DebugLocalDataMultiProvider extends ItemViewProvider<DebugLocalData
         });
         holder.appDirectoryLinearLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                // TODO: leo 2018/12/30
-                //                DebugFilesActivity.enterActivity(DebugLocalDataMultiProvider.this.context);
+                DebugFilesActivity.enterActivity(DebugLocalDataMultiProvider.this.context);
             }
         });
         holder.cleanDataLinearLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 String[] items = DebugLocalDataMultiProvider.this.context.getResources().getStringArray(R.array.cld_clean_type);
                 final boolean[] checked = new boolean[items.length];
-                (new AlertDialog.Builder(DebugLocalDataMultiProvider.this.context)).setTitle("请选择要清理的数据").setMultiChoiceItems(items, (boolean[])null, new DialogInterface.OnMultiChoiceClickListener() {
+                (new AlertDialog.Builder(DebugLocalDataMultiProvider.this.context)).setTitle("请选择要清理的数据").setMultiChoiceItems(items, null, new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         checked[which] = isChecked;
                     }
@@ -123,7 +123,7 @@ public class DebugLocalDataMultiProvider extends ItemViewProvider<DebugLocalData
         File[] var2 = dir.listFiles();
         int var3 = var2.length;
 
-        for(int var4 = 0; var4 < var3; ++var4) {
+        for (int var4 = 0; var4 < var3; ++var4) {
             File file = var2[var4];
             if (file.isFile()) {
                 file.delete();
@@ -145,12 +145,12 @@ public class DebugLocalDataMultiProvider extends ItemViewProvider<DebugLocalData
 
         DebugLocalDataViewHolder(View itemView) {
             super(itemView);
-            this.sharedPreferenceLinearLayout = (LinearLayout)itemView.findViewById(R.id.cld_local_data_shared_preference_ll);
-            this.sharedPreferenceCountTextView = (TextView)itemView.findViewById(R.id.cld_local_data_shared_preference_count_tv);
-            this.databaseLinearLayout = (LinearLayout)itemView.findViewById(R.id.cld_local_data_database_ll);
-            this.databaseCountTextView = (TextView)itemView.findViewById(R.id.cld_local_data_database_count_tv);
-            this.appDirectoryLinearLayout = (LinearLayout)itemView.findViewById(R.id.cld_local_data_app_directory_ll);
-            this.cleanDataLinearLayout = (LinearLayout)itemView.findViewById(R.id.cld_local_data_clean_data_ll);
+            this.sharedPreferenceLinearLayout = (LinearLayout) itemView.findViewById(R.id.cld_local_data_shared_preference_ll);
+            this.sharedPreferenceCountTextView = (TextView) itemView.findViewById(R.id.cld_local_data_shared_preference_count_tv);
+            this.databaseLinearLayout = (LinearLayout) itemView.findViewById(R.id.cld_local_data_database_ll);
+            this.databaseCountTextView = (TextView) itemView.findViewById(R.id.cld_local_data_database_count_tv);
+            this.appDirectoryLinearLayout = (LinearLayout) itemView.findViewById(R.id.cld_local_data_app_directory_ll);
+            this.cleanDataLinearLayout = (LinearLayout) itemView.findViewById(R.id.cld_local_data_clean_data_ll);
         }
     }
 }
