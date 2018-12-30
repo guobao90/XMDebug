@@ -1,2 +1,48 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.leo.xmdebug"/>
+          package="com.leo.xmdebug">
+
+    <application
+        android:allowBackup="true"
+        android:supportsRtl="true"
+        >
+        <activity
+            android:name=".DebugHomeActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity
+            android:name=".DebugAppInfoDetailsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".detail.DebugDeviceInfoDetailsActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".localData.DebugDatabaseActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+
+        <activity
+            android:name=".log.DebugCrashLogActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:screenOrientation="portrait"
+            />
+
+        <activity android:name=".localData.DebugSharedPreferenceActivity"
+                  android:configChanges="keyboardHidden|orientation|screenSize"
+                  android:screenOrientation="portrait"
+                  />
+
+    </application>
+
+</manifest>

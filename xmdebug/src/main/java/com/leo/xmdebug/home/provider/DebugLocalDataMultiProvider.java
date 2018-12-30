@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Environment;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.TextView;
 import com.leo.baseui.mutiType.base.ItemViewProvider;
 import com.leo.xmdebug.R;
 import com.leo.xmdebug.home.model.DebugLocalDataMultiModel;
+import com.leo.xmdebug.localData.DebugDatabaseActivity;
 import com.leo.xmdebug.localData.DebugSharedPreferenceActivity;
 
 import java.io.File;
@@ -58,16 +60,17 @@ public class DebugLocalDataMultiProvider extends ItemViewProvider<DebugLocalData
                 DebugDatabaseActivity.enterActivity(DebugLocalDataMultiProvider.this.context);
             }
         });
-        holder.appDirectoryLinearLayout.setOnClickListener(new OnClickListener() {
+        holder.appDirectoryLinearLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                DebugFilesActivity.enterActivity(DebugLocalDataMultiProvider.this.context);
+                // TODO: leo 2018/12/30
+                //                DebugFilesActivity.enterActivity(DebugLocalDataMultiProvider.this.context);
             }
         });
-        holder.cleanDataLinearLayout.setOnClickListener(new OnClickListener() {
+        holder.cleanDataLinearLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                String[] items = DebugLocalDataMultiProvider.this.context.getResources().getStringArray(array.cld_clean_type);
+                String[] items = DebugLocalDataMultiProvider.this.context.getResources().getStringArray(R.array.cld_clean_type);
                 final boolean[] checked = new boolean[items.length];
-                (new Builder(DebugLocalDataMultiProvider.this.context)).setTitle("请选择要清理的数据").setMultiChoiceItems(items, (boolean[])null, new OnMultiChoiceClickListener() {
+                (new AlertDialog.Builder(DebugLocalDataMultiProvider.this.context)).setTitle("请选择要清理的数据").setMultiChoiceItems(items, (boolean[])null, new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog, int which, boolean isChecked) {
                         checked[which] = isChecked;
                     }

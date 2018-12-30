@@ -172,7 +172,7 @@ public class DebugFloatingWindow {
         this.detector = new GestureDetector(this.applicationContext, new GestureDetector.SimpleOnGestureListener() {
             @Override
             public boolean onScroll(MotionEvent e1, MotionEvent e2, float distanceX, float distanceY) {
-                ViewGroup.LayoutParams var10000 = DebugFloatingWindow.this.layoutParams;
+                WindowManager.LayoutParams var10000 = DebugFloatingWindow.this.layoutParams;
                 var10000.x = (int)((float)var10000.x + distanceX);
                 var10000 = DebugFloatingWindow.this.layoutParams;
                 var10000.y = (int)((float)var10000.y + distanceY);

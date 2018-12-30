@@ -1,5 +1,6 @@
 package com.leo.xmdebug;
 
+import android.support.v4.app.Fragment;
 import android.view.View;
 
 import com.leo.xmdebug.detail.DebugInfoDetail;
@@ -14,14 +15,14 @@ public abstract class DebugInfoDetailsActivity extends DebugBaseActivity {
     }
 
     protected int getLayoutId() {
-        return layout.cld_activity_info;
+        return R.layout.cld_activity_info;
     }
 
     protected void init() {
         DebugInfoDetailsFragment fragment = DebugInfoDetailsFragment.newInstance(this.getTitleString(), this.getDetailsInfo());
         this.fragments.offerFirst(fragment);
-        this.getSupportFragmentManager().beginTransaction().add(id.cld_app_details_container_fl, fragment).setTransition(4097).commit();
-        this.titleBar.setNavigationOnClickListener(new OnClickListener() {
+        this.getSupportFragmentManager().beginTransaction().add(R.id.cld_app_details_container_fl, fragment).setTransition(4097).commit();
+        this.titleBar.setNavigationOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DebugInfoDetailsActivity.this.onBackPressed();
             }
@@ -39,7 +40,7 @@ public abstract class DebugInfoDetailsActivity extends DebugBaseActivity {
 
     public void openNextDetailFragment(String title, ArrayList<DebugInfoDetail> details) {
         DebugInfoDetailsFragment fragment = DebugInfoDetailsFragment.newInstance(title, details);
-        this.getSupportFragmentManager().beginTransaction().hide((Fragment)this.fragments.peek()).add(id.cld_app_details_container_fl, fragment).setTransition(4097).commit();
+        this.getSupportFragmentManager().beginTransaction().hide((Fragment)this.fragments.peek()).add(R.id.cld_app_details_container_fl, fragment).setTransition(4097).commit();
         this.fragments.offerFirst(fragment);
     }
 

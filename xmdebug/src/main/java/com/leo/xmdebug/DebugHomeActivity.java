@@ -2,13 +2,16 @@ package com.leo.xmdebug;
 
 import android.content.Context;
 import android.content.Intent;
-import android.os.Debug;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 
 import com.leo.baseui.mutiType.base.Items;
 import com.leo.xmdebug.home.DebugSwitchMultiProvider;
+import com.leo.xmdebug.home.model.DebugLocalDataMultiModel;
+import com.leo.xmdebug.home.model.DebugLogMultiModel;
 import com.leo.xmdebug.home.model.DebugSwitchMultiModel;
+import com.leo.xmdebug.home.provider.DebugLocalDataMultiProvider;
+import com.leo.xmdebug.home.provider.DebugLogMultiProvider;
 import com.leo.xmdebug.main.DebugTopMultiProvider;
 import com.leo.xmdebug.main.adapter.DebugListAdapter;
 import com.leo.xmdebug.main.model.DebugTopMultiModel;
@@ -24,7 +27,6 @@ public class DebugHomeActivity extends DebugBaseActivity {
 
     public static void enterActivity(Context context) {
         Intent intent = new Intent(context, DebugHomeActivity.class);
-//        intent.setFlags(268435456);
         context.startActivity(intent);
     }
 
@@ -52,8 +54,6 @@ public class DebugHomeActivity extends DebugBaseActivity {
         this.adapter.register(DebugBaseInfoMultiModel.class, new DebugBaseInfoMultiProvider(this));
         this.adapter.register(DebugSwitchMultiModel.class, new DebugSwitchMultiProvider(this));
         this.adapter.register(DebugLocalDataMultiModel.class, new DebugLocalDataMultiProvider(this));
-        this.adapter.register(DebugReactNativeMultiModel.class, new DebugReactNativeMultiProvider(this));
-        this.adapter.register(DebugEntranceMultiModel.class, new DebugEntranceMultiProvider(this));
         this.adapter.register(DebugLogMultiModel.class, new DebugLogMultiProvider(this));
         this.contentRv.setLayoutManager(new LinearLayoutManager(this));
         this.contentRv.setAdapter(this.adapter);
@@ -61,13 +61,7 @@ public class DebugHomeActivity extends DebugBaseActivity {
         items.add(new DebugTopMultiModel());
         items.add(new DebugBaseInfoMultiModel());
         items.add(new DebugSwitchMultiModel());
-        items.add(new DebugNetworkMultiModel());
         items.add(new DebugLocalDataMultiModel());
-        if (Debug.mainProject == 1) {
-            items.add(new DebugReactNativeMultiModel());
-        }
-
-        items.add(new DebugEntranceMultiModel());
         items.add(new DebugLogMultiModel());
         this.adapter.setItems(items);
     }

@@ -95,7 +95,7 @@ public class ThreeDimensionLayout extends FrameLayout {
         this.layeredViewQueue = new ArrayDeque();
         this.layeredViewPool = new ThreeDimensionLayout.Pool<ThreeDimensionLayout.LayeredView>(25) {
             protected ThreeDimensionLayout.LayeredView newObject() {
-                return new ThreeDimensionLayout.LayeredView(null);
+                return new ThreeDimensionLayout.LayeredView();
             }
         };
         this.drawViews = true;

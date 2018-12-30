@@ -19,8 +19,11 @@ import com.leo.xmdebug.detail.model.DebugInfoDetailsNormalModel;
 import com.leo.xmdebug.main.adapter.DebugListAdapter;
 import com.leo.xmdebug.mt.DebugDatabaseMultiModel;
 import com.leo.xmdebug.mt.DebugInfoDetailsActivitiesMultiModel;
+import com.leo.xmdebug.mt.DebugInfoDetailsActivitiesMultiProvider;
 import com.leo.xmdebug.mt.DebugInfoDetailsNormalMultiModel;
+import com.leo.xmdebug.mt.DebugInfoDetailsNormalMultiProvider;
 import com.leo.xmdebug.mt.DebugInfoDetailsPermissionsMultiModel;
+import com.leo.xmdebug.mt.DebugInfoDetailsPermissionsMultiProvider;
 
 import java.util.ArrayList;
 import java.util.Iterator;
@@ -134,9 +137,10 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
         this.adapter.register(DebugInfoDetailsNormalMultiModel.class, new DebugInfoDetailsNormalMultiProvider((DebugInfoDetailsActivity)this.getActivity()));
         this.adapter.register(DebugInfoDetailsActivitiesMultiModel.class, new DebugInfoDetailsActivitiesMultiProvider(this.getActivity()));
         this.adapter.register(DebugInfoDetailsPermissionsMultiModel.class, new DebugInfoDetailsPermissionsMultiProvider(this.getContext()));
-        this.adapter.register(DebugInfoDetailsInstalledAppModel.class, new DebugInfoDetailsInstalledAppMultiProvider());
-        this.adapter.register(DebugCrashLogDetailModel.class, new DebugCrashLogDetailMultiProvider(this.getContext()));
-        this.adapter.register(DebugFilesMultiModel.class, new DebugFilesMultiProvider((DebugInfoDetailsActivity)this.getActivity()));
-        this.adapter.register(DebugDatabaseMultiModel.class, new DebugDatabaseMultiProvider(this.getContext()));
+        // TODO: leo 2018/12/30  
+        //        this.adapter.register(DebugInfoDetailsInstalledAppModel.class, new DebugInfoDetailsInstalledAppMultiProvider());
+//        this.adapter.register(DebugCrashLogDetailModel.class, new DebugCrashLogDetailMultiProvider(this.getContext()));
+//        this.adapter.register(DebugFilesMultiModel.class, new DebugFilesMultiProvider((DebugInfoDetailsActivity)this.getActivity()));
+//        this.adapter.register(DebugDatabaseMultiModel.class, new DebugDatabaseMultiProvider(this.getContext()));
     }
 }

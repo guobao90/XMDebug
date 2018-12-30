@@ -29,7 +29,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:padding="10dp"
-            android:text="@string/cld_xiao_niu_entrance"
             android:textColor="@color/cld_text_dark"
             android:textSize="@dimen/cld_text_size_large" />
 

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.chelun.libraries.clui.toolbar.ClToolbar
+<com.leo.baseui.toolbar.GBToolbar
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@id/cld_title_bar"
+    android:id="@id/navigationBar"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"/>

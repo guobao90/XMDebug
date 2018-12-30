@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="cld_crash_type">
+        <item>NullPointerException</item>
+        <item>IndexOutOfBoundsException</item>
+        <item>ClassCastException</item>
+        <item>IllegalArgumentException</item>
+        <item>UnsupportedOperationException</item>
+    </string-array>
+
+    <string-array name="cld_clean_type">
+        <item>SharedPreference</item>
+        <item>Cache</item>
+        <item>数据库</item>
+    </string-array>
+</resources>

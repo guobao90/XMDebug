@@ -6,6 +6,7 @@ import android.content.pm.ActivityInfo;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ProviderInfo;
+import android.content.pm.ServiceInfo;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Build;
@@ -16,21 +17,26 @@ import android.util.DisplayMetrics;
 
 import com.leo.utils.AndroidUtils;
 import com.leo.utils.DateUtils;
+import com.leo.xmdebug.R;
 import com.leo.xmdebug.detail.DebugInfoDetail;
 import com.leo.xmdebug.detail.model.DebugInfoDetailsNormalModel;
+import com.leo.xmdebug.home.model.DebugCrashLogDetailModel;
+import com.leo.xmdebug.home.model.DebugDatabaseModel;
+import com.leo.xmdebug.home.model.DebugInfoDetailsInstalledAppModel;
+import com.leo.xmdebug.mt.model.DebugFilesMultiModel;
+import com.leo.xmdebug.utils.DebugAndroidUtil;
 
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FilenameFilter;
 import java.io.InputStreamReader;
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 public class DebugInfoDetailsDataProvider {
@@ -128,15 +134,6 @@ public class DebugInfoDetailsDataProvider {
             case ABI:
                 list.add(this.getABIs());
                 break;
-            case UUID:
-                list.add(this.getUUID());
-                break;
-            case DEVICE_TOKEN:
-                list.add(this.getDeviceToken());
-                break;
-            case ACCOUNT_ABSTRACT:
-                list.addAll(this.getAccountAbstract());
-                break;
             case SHARED_PREFERENCE_LIST:
                 list.addAll(this.getSharedPreferenceList());
                 break;
@@ -220,7 +217,7 @@ public class DebugInfoDetailsDataProvider {
         return model;
     }
 
-    private DebugInfoDetailsNormalModel getFirstInstallTime() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getFirstInstallTime() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 0);
         model.setFirst("首次安装时间");
@@ -228,7 +225,7 @@ public class DebugInfoDetailsDataProvider {
         return model;
     }
 
-    private DebugInfoDetailsNormalModel getLastUpdateTime() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getLastUpdateTime() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 0);
         model.setFirst("最后更新时间");
@@ -236,16 +233,16 @@ public class DebugInfoDetailsDataProvider {
         return model;
     }
 
-    private DebugInfoDetailsNormalModel getActivitiesSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getActivitiesSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         model.setFirst("Activities");
 
         try {
             PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 1);
-            model.setSecond(this.context.getString(string.cld_a, new Object[]{String.valueOf(packageInfo.activities.length)}));
+            model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.activities.length)}));
             model.setNextTitle("Activities");
             ArrayList<DebugInfoDetail> list = new ArrayList();
-            list.add(new DebugInfoDetail(InfoType.ACTIVITIES));
+            list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.ACTIVITIES));
             model.setNext(list);
         } catch (Exception var4) {
             model.setSecond("数据太多，挂了_(:з)∠)_");
@@ -254,7 +251,7 @@ public class DebugInfoDetailsDataProvider {
         return model;
     }
 
-    private List<DebugInfoDetailsNormalModel> getActivities() throws NameNotFoundException {
+    private List<DebugInfoDetailsNormalModel> getActivities() throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 1);
         List<DebugInfoDetailsNormalModel> activities = new ArrayList();
         ActivityInfo[] var3 = packageInfo.activities;
@@ -264,26 +261,26 @@ public class DebugInfoDetailsDataProvider {
             ActivityInfo activityInfo = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(activityInfo.name);
-            model.setType(NormalInfoType.ACTIVITIES);
+            model.setType(DebugInfoDetailsNormalModel.NormalInfoType.ACTIVITIES);
             activities.add(model);
         }
 
         return activities;
     }
 
-    private DebugInfoDetailsNormalModel getServicesSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getServicesSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 4);
         model.setFirst("Services");
-        model.setSecond(this.context.getString(string.cld_a, new Object[]{String.valueOf(packageInfo.services.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.services.length)}));
         model.setNextTitle("Services");
         ArrayList<DebugInfoDetail> list = new ArrayList();
-        list.add(new DebugInfoDetail(InfoType.SERVICES));
+        list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.SERVICES));
         model.setNext(list);
         return model;
     }
 
-    private List<DebugInfoDetailsNormalModel> getServices() throws NameNotFoundException {
+    private List<DebugInfoDetailsNormalModel> getServices() throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 4);
         ArrayList<DebugInfoDetailsNormalModel> services = new ArrayList();
         ServiceInfo[] var3 = packageInfo.services;
@@ -299,19 +296,19 @@ public class DebugInfoDetailsDataProvider {
         return services;
     }
 
-    private DebugInfoDetailsNormalModel getReceiversSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getReceiversSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 2);
         model.setFirst("Receivers");
-        model.setSecond(this.context.getString(string.cld_a, new Object[]{String.valueOf(packageInfo.receivers.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.receivers.length)}));
         model.setNextTitle("Receivers");
         ArrayList<DebugInfoDetail> list = new ArrayList();
-        list.add(new DebugInfoDetail(InfoType.RECEIVERS));
+        list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.RECEIVERS));
         model.setNext(list);
         return model;
     }
 
-    private List<DebugInfoDetailsNormalModel> getReceivers() throws NameNotFoundException {
+    private List<DebugInfoDetailsNormalModel> getReceivers() throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 2);
         ArrayList<DebugInfoDetailsNormalModel> receivers = new ArrayList();
         ActivityInfo[] var3 = packageInfo.receivers;
@@ -327,19 +324,19 @@ public class DebugInfoDetailsDataProvider {
         return receivers;
     }
 
-    private DebugInfoDetailsNormalModel getProvidersSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getProvidersSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 8);
         model.setFirst("Providers");
-        model.setSecond(this.context.getString(string.cld_a, new Object[]{String.valueOf(packageInfo.providers.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.providers.length)}));
         model.setNextTitle("Providers");
         ArrayList<DebugInfoDetail> list = new ArrayList();
-        list.add(new DebugInfoDetail(InfoType.PROVIDERS));
+        list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.PROVIDERS));
         model.setNext(list);
         return model;
     }
 
-    private List<DebugInfoDetailsNormalModel> getProviders() throws NameNotFoundException {
+    private List<DebugInfoDetailsNormalModel> getProviders() throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 8);
         ArrayList<DebugInfoDetailsNormalModel> providers = new ArrayList();
         ProviderInfo[] var3 = packageInfo.providers;
@@ -355,19 +352,19 @@ public class DebugInfoDetailsDataProvider {
         return providers;
     }
 
-    private DebugInfoDetailsNormalModel getPermissionsSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getPermissionsSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 4096);
         model.setFirst("Permissions");
-        model.setSecond(this.context.getString(string.cld_count, new Object[]{String.valueOf(packageInfo.requestedPermissions.length)}));
+        model.setSecond(this.context.getString(R.string.cld_count, new Object[]{String.valueOf(packageInfo.requestedPermissions.length)}));
         model.setNextTitle("Permissions");
         ArrayList<DebugInfoDetail> list = new ArrayList();
-        list.add(new DebugInfoDetail(InfoType.PERMISSIONS));
+        list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.PERMISSIONS));
         model.setNext(list);
         return model;
     }
 
-    private List<DebugInfoDetailsNormalModel> getPermissions() throws NameNotFoundException {
+    private List<DebugInfoDetailsNormalModel> getPermissions() throws PackageManager.NameNotFoundException {
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 4096);
         ArrayList<DebugInfoDetailsNormalModel> permissions = new ArrayList();
         String[] var3 = packageInfo.requestedPermissions;
@@ -377,14 +374,14 @@ public class DebugInfoDetailsDataProvider {
             String permission = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(permission);
-            model.setType(NormalInfoType.PERMISSIONS);
+            model.setType(DebugInfoDetailsNormalModel.NormalInfoType.PERMISSIONS);
             permissions.add(model);
         }
 
         return permissions;
     }
 
-    private DebugInfoDetailsNormalModel getInstalledAppSummary() throws NameNotFoundException {
+    private DebugInfoDetailsNormalModel getInstalledAppSummary() throws PackageManager.NameNotFoundException {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         List<PackageInfo> packages = this.packageManager.getInstalledPackages(0);
         int count = 0;
@@ -398,15 +395,15 @@ public class DebugInfoDetailsDataProvider {
         }
 
         model.setFirst("已安装应用");
-        model.setSecond(this.context.getString(string.cld_a, new Object[]{String.valueOf(count)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(count)}));
         model.setNextTitle("已安装应用");
         ArrayList<DebugInfoDetail> list = new ArrayList();
-        list.add(new DebugInfoDetail(InfoType.INSTALLED_APP));
+        list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.INSTALLED_APP));
         model.setNext(list);
         return model;
     }
 
-    private List<DebugInfoDetailsInstalledAppModel> getInstalledApp() throws NameNotFoundException {
+    private List<DebugInfoDetailsInstalledAppModel> getInstalledApp() throws PackageManager.NameNotFoundException {
         List<PackageInfo> packages = this.packageManager.getInstalledPackages(0);
         List<DebugInfoDetailsInstalledAppModel> apps = new ArrayList();
         Iterator var3 = packages.iterator();
@@ -433,15 +430,13 @@ public class DebugInfoDetailsDataProvider {
         list.add(this.getResolution());
         list.add(this.getRoot());
         list.add(this.getABIs());
-        list.add(this.getUUID());
-        list.add(this.getDeviceToken());
         return list;
     }
 
     private DebugInfoDetailsNormalModel getBuildVersion() {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         model.setFirst("Android版本");
-        model.setSecond(VERSION.RELEASE);
+        model.setSecond(Build.VERSION.RELEASE);
         return model;
     }
 
@@ -481,7 +476,7 @@ public class DebugInfoDetailsDataProvider {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         model.setFirst("ABIs支持");
         String abis = "";
-        if (VERSION.SDK_INT >= 21) {
+        if (Build.VERSION.SDK_INT >= 21) {
             String[] var3 = Build.SUPPORTED_ABIS;
             int var4 = var3.length;
 
@@ -503,126 +498,6 @@ public class DebugInfoDetailsDataProvider {
         return model;
     }
 
-    private DebugInfoDetailsNormalModel getUUID() {
-        DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
-        model.setFirst("UUID");
-        model.setSecond(DeviceUuidFactory.getIns(this.context).getDeviceUuid().toString());
-        return model;
-    }
-
-    private DebugInfoDetailsNormalModel getDeviceToken() {
-        DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
-        model.setFirst("Device token");
-
-        try {
-            Class<?> pushUtilClass = Class.forName("cn.eclicks.wzsearch.utils.PushUtil");
-            Method getDeviceTokenMethod = pushUtilClass.getDeclaredMethod("getDeviceToken", Context.class);
-            model.setSecond((String)getDeviceTokenMethod.invoke((Object)null, this.context));
-        } catch (Exception var4) {
-            model.setSecond("获取失败");
-        }
-
-        return model;
-    }
-
-    private List<DebugInfoDetailsNormalModel> getAccountAbstract() {
-        List<DebugInfoDetailsNormalModel> abstracts = new ArrayList();
-        DebugUserInfo debugUserInfo = DebugUserInfoPrefManager.getUserInfo(this.context);
-        DebugInfoDetailsNormalModel uId = new DebugInfoDetailsNormalModel();
-        uId.setFirst("用户ID");
-        uId.setSecond(debugUserInfo.getuId());
-        abstracts.add(uId);
-        DebugInfoDetailsNormalModel nick = new DebugInfoDetailsNormalModel();
-        nick.setFirst("昵称");
-        nick.setSecond(debugUserInfo.getNick());
-        abstracts.add(nick);
-
-        DebugInfoDetailsNormalModel type;
-        try {
-            type = new DebugInfoDetailsNormalModel();
-            type.setFirst("注册时间");
-            type.setSecond(DateUtils.getTimeString(Long.parseLong(debugUserInfo.getRegisterTime()), "yyyy-MM-dd HH:mm:ss"));
-            abstracts.add(type);
-        } catch (Exception var13) {
-            ;
-        }
-
-        type = new DebugInfoDetailsNormalModel();
-        type.setFirst("用户资料情况");
-        String var6 = debugUserInfo.getType();
-        byte var7 = -1;
-        switch(var6.hashCode()) {
-        case 48:
-            if (var6.equals("0")) {
-                var7 = 0;
-            }
-            break;
-        case 49:
-            if (var6.equals("1")) {
-                var7 = 1;
-            }
-            break;
-        case 50:
-            if (var6.equals("2")) {
-                var7 = 2;
-            }
-        }
-
-        switch(var7) {
-        case 0:
-            type.setSecond("0(啥资料也没有)");
-            break;
-        case 1:
-            type.setSecond("1(只有基本资料)");
-            break;
-        case 2:
-            type.setSecond("2(资料齐全)");
-            break;
-        default:
-            type.setSecond(debugUserInfo.getType() + "(这是啥？还有这种type？)");
-        }
-
-        abstracts.add(type);
-
-        try {
-            Class<?> authClass = Class.forName("com.chelun.support.cldata.authcookie.CLAuthSharedPrefsCookiePersistor");
-            Constructor<?> constructor = authClass.getConstructor(Context.class);
-            Object instances = constructor.newInstance(this.context);
-            Method loadMethod = authClass.getDeclaredMethod("load");
-            loadMethod.setAccessible(true);
-            Cookie cookie = (Cookie)loadMethod.invoke(instances);
-            if (cookie != null) {
-                DebugInfoDetailsNormalModel auth = new DebugInfoDetailsNormalModel();
-                auth.setFirst("Auth");
-                auth.setSecond(cookie.value());
-                abstracts.add(auth);
-            }
-        } catch (Exception var12) {
-            var12.printStackTrace();
-        }
-
-        DebugInfoDetailsNormalModel acToken = new DebugInfoDetailsNormalModel();
-        acToken.setFirst("ACToken");
-        acToken.setSecond(debugUserInfo.getAcToken());
-        abstracts.add(acToken);
-        DebugInfoDetailsNormalModel rfToken = new DebugInfoDetailsNormalModel();
-        rfToken.setFirst("RFToken");
-        rfToken.setSecond(debugUserInfo.getRfToken());
-        abstracts.add(rfToken);
-        DebugInfoDetailsNormalModel tokenExpire = new DebugInfoDetailsNormalModel();
-        tokenExpire.setFirst("token有效期至");
-        tokenExpire.setSecond(DateUtils.getTimeString(debugUserInfo.getTokenExpire(), "yyyy-MM-dd HH:mm:ss"));
-        abstracts.add(tokenExpire);
-        DebugInfoDetailsNormalModel welfareUId = new DebugInfoDetailsNormalModel();
-        welfareUId.setFirst("福利大全用户ID");
-        welfareUId.setSecond(debugUserInfo.getWelfareUId());
-        abstracts.add(welfareUId);
-        DebugInfoDetailsNormalModel phone = new DebugInfoDetailsNormalModel();
-        phone.setFirst("电话");
-        phone.setSecond(debugUserInfo.getPhone());
-        abstracts.add(phone);
-        return abstracts;
-    }
 
     private List<DebugInfoDetailsNormalModel> getSharedPreferenceList() {
         List<DebugInfoDetailsNormalModel> list = new ArrayList();
@@ -641,7 +516,7 @@ public class DebugInfoDetailsDataProvider {
             model.setFirst(name);
             model.setNextTitle(name);
             ArrayList<DebugInfoDetail> nextList = new ArrayList();
-            DebugInfoDetail detail = new DebugInfoDetail(InfoType.SHARED_PREFERENCE_DETAIL);
+            DebugInfoDetail detail = new DebugInfoDetail(DebugInfoDetail.InfoType.SHARED_PREFERENCE_DETAIL);
             detail.setStringExtra(spf.getName());
             nextList.add(detail);
             model.setNext(nextList);
@@ -657,7 +532,7 @@ public class DebugInfoDetailsDataProvider {
 
         DebugInfoDetailsNormalModel model;
         for(Iterator var4 = spf.getAll().entrySet().iterator(); var4.hasNext(); list.add(model)) {
-            Entry<String, ?> entry = (Entry)var4.next();
+            Map.Entry<String, ?> entry = (Map.Entry)var4.next();
             model = new DebugInfoDetailsNormalModel();
             model.setFirst((String)entry.getKey());
             if (!(entry.getValue() instanceof Set)) {
@@ -715,10 +590,10 @@ public class DebugInfoDetailsDataProvider {
 
             model.setFirst(name);
             ArrayList<DebugInfoDetail> nextList = new ArrayList();
-            DebugInfoDetail detail = new DebugInfoDetail(InfoType.DATABASE_DETAILS);
+            DebugInfoDetail detail = new DebugInfoDetail(DebugInfoDetail.InfoType.DATABASE_DETAILS);
             detail.setStringExtra(file.getName());
             model.setNext(nextList);
-            model.setType(NormalInfoType.DATABASE);
+            model.setType(DebugInfoDetailsNormalModel.NormalInfoType.DATABASE);
             nextList.add(detail);
             list.add(model);
         }
@@ -732,7 +607,7 @@ public class DebugInfoDetailsDataProvider {
         ArrayList tables = new ArrayList();
 
         try {
-            SQLiteDatabase database = SQLiteDatabase.openDatabase(this.context.getDatabasePath(databaseName).getAbsolutePath(), (CursorFactory)null, 1);
+            SQLiteDatabase database = SQLiteDatabase.openDatabase(this.context.getDatabasePath(databaseName).getAbsolutePath(), (SQLiteDatabase.CursorFactory)null, 1);
             Cursor tableCursor = database.rawQuery("select name from sqlite_master where type='table' order by name", (String[])null);
             ArrayList tableNames = new ArrayList();
 
@@ -746,7 +621,7 @@ public class DebugInfoDetailsDataProvider {
             while(var7.hasNext()) {
                 String tableName = (String)var7.next();
                 Cursor cursor = database.query(tableName, (String[])null, (String)null, (String[])null, (String)null, (String)null, (String)null);
-                Table table = new Table();
+                DebugDatabaseModel.Table table = new DebugDatabaseModel.Table();
                 table.setName(tableName);
                 ArrayList data = new ArrayList();
 
@@ -824,7 +699,7 @@ public class DebugInfoDetailsDataProvider {
                 model.setFirst(logFile.getName());
                 model.setNextTitle(timeFormat);
                 ArrayList<DebugInfoDetail> nextList = new ArrayList();
-                DebugInfoDetail info = new DebugInfoDetail(InfoType.CRASH_LOG_DETAIL);
+                DebugInfoDetail info = new DebugInfoDetail(DebugInfoDetail.InfoType.CRASH_LOG_DETAIL);
                 info.setStringExtra(logFile.getAbsolutePath());
                 nextList.add(info);
                 model.setNext(nextList);
