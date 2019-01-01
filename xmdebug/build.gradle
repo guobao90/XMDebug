@@ -4,8 +4,6 @@ apply plugin: 'com.novoda.bintray-release'
 android {
     compileSdkVersion 28
 
-
-
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 28
