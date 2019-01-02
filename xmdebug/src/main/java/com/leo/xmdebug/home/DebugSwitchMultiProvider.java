@@ -45,7 +45,7 @@ public class DebugSwitchMultiProvider extends ItemViewProvider<DebugSwitchMultiM
         });
         holder.statisticLinearLayout.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                AlertDialog dialog = (new AlertDialog.Builder(DebugSwitchMultiProvider.this.context)).setTitle("如何查看友盟统计事件").setMessage(Html.fromHtml("请将手机连接至电脑后，Mac/Linux请在Terminal中、Windows请在CMD中输入<font color='red'>adb logcat -s '事件'</font>\n此功能需要安装ADB并正确设置环境变量(Windows)，或定位至adb目录再执行上述命令")).setPositiveButton((CharSequence)null, (android.content.DialogInterface.OnClickListener)null).setNegativeButton("知道了", new android.content.DialogInterface.OnClickListener() {
+                AlertDialog dialog = (new AlertDialog.Builder(DebugSwitchMultiProvider.this.context)).setTitle("如何查看友盟统计事件").setMessage(Html.fromHtml("请将手机连接至电脑后，Mac/Linux请在Terminal中、Windows请在CMD中输入<font color='red'>adb logcat -s '事件'</font>\n此功能需要安装ADB并正确设置环境变量(Windows)，或定位至adb目录再执行上述命令")).setPositiveButton(null, null).setNegativeButton("知道了", new android.content.DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int which) {
                         dialog.dismiss();
                     }
@@ -61,8 +61,8 @@ public class DebugSwitchMultiProvider extends ItemViewProvider<DebugSwitchMultiM
 
         DebugSwitchViewHolder(View itemView) {
             super(itemView);
-            this.activitySwitch = (Switch)itemView.findViewById(R.id.cld_activity_switch);
-            this.statisticLinearLayout = (LinearLayout)itemView.findViewById(R.id.cld_statistic_switch_ll);
+            this.activitySwitch = itemView.findViewById(R.id.cld_activity_switch);
+            this.statisticLinearLayout = itemView.findViewById(R.id.cld_statistic_switch_ll);
         }
     }
 }

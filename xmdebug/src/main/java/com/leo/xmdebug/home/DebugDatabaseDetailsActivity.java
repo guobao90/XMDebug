@@ -63,7 +63,7 @@ public class DebugDatabaseDetailsActivity extends BaseActivity {
         this.fragments = new ArrayList();
         this.titles = new ArrayList();
         this.handler = new Handler(Looper.getMainLooper());
-        final DebugInfoDetail detail = (DebugInfoDetail)this.getIntent().getParcelableExtra("detailInfo");
+        final DebugInfoDetail detail = this.getIntent().getParcelableExtra("detailInfo");
         (new Thread(new Runnable() {
             public void run() {
                 DebugDatabaseDetailsActivity.this.database = (DebugDatabaseModel)(new DebugInfoDetailsDataProvider(DebugDatabaseDetailsActivity.this)).getDetail(detail).get(0);
