@@ -170,3 +170,4 @@ cd "$(dirname "$0")"
 fi
 
 exec "$JAVACMD" "$@"
+
