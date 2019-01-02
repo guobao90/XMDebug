@@ -24,7 +24,6 @@ import java.util.Iterator;
 import java.util.List;
 
 public class DebugDatabaseDetailsActivity extends BaseActivity {
-    private static final String EXTRA_DETAIL_INFO = "detailInfo";
     private List<DebugBaseFragment> fragments;
     private TabsView tabs;
     private ViewPager viewPager;
@@ -54,8 +53,8 @@ public class DebugDatabaseDetailsActivity extends BaseActivity {
 
     private void initViews() {
         tipDialog = new TipsBaseDialog(this);
-        this.tabs = (TabsView) this.findViewById(R.id.cld_database_tabs);
-        this.viewPager = (ViewPager)this.findViewById(R.id.cld_database_container);
+        this.tabs =  this.findViewById(R.id.cld_database_tabs);
+        this.viewPager = this.findViewById(R.id.cld_database_container);
     }
 
     private void initData() {
