@@ -54,13 +54,12 @@ public class DebugInfoDetail implements Parcelable {
         this.stringExtra = in.readString();
     }
 
-    public static enum InfoType {
+    public enum InfoType {
         APP_ABSTRACT,
         APP_NAME,
         PACKAGE_NAME,
         VERSION,
         VERSION_CODE,
-        MARKET,
         FIRST_INSTALL_TIME,
         LAST_UPDATE_TIME,
         ACTIVITIES_SUMMARY,

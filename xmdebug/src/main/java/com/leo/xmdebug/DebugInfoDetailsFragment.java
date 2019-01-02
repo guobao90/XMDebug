@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.leo.baseui.dialog.TipsBaseDialog;
 import com.leo.baseui.mutiType.base.Items;
 import com.leo.xmdebug.base.DebugInfoDetailsDataProvider;
 import com.leo.xmdebug.detail.DebugInfoDetail;
@@ -47,6 +48,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
     private Handler handler;
     private DebugInfoDetailsDataProvider detailsProvider;
     private Items items;
+    private TipsBaseDialog tipDialog;
 
     public DebugInfoDetailsFragment() {
     }
@@ -80,6 +82,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
     }
 
     private void initData() {
+        tipDialog = new TipsBaseDialog(getContext());
         this.handler = new Handler(Looper.getMainLooper());
         this.containerRv.setLayoutManager(new LinearLayoutManager(this.getContext()));
         this.adapter = new DebugListAdapter() {
@@ -114,7 +117,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
         this.title = this.getArguments().getString("title");
         this.getToolbar().setTitle(this.title);
         if (this.details != null) {
-            this.getTipsBaseDialog().showLoadingDialog("加载中");
+            tipDialog.showLoadingDialog("加载中");
             (new Thread(new Runnable() {
                 public void run() {
                     DebugInfoDetailsFragment.this.detailsProvider = new DebugInfoDetailsDataProvider(DebugInfoDetailsFragment.this.getContext());
@@ -130,7 +133,7 @@ public class DebugInfoDetailsFragment extends DebugBaseFragment {
 
                     DebugInfoDetailsFragment.this.handler.post(new Runnable() {
                         public void run() {
-                            DebugInfoDetailsFragment.this.getTipsBaseDialog().dismiss();
+                            DebugInfoDetailsFragment.this.tipDialog.dismiss();
                             DebugInfoDetailsFragment.this.adapter.setItems(DebugInfoDetailsFragment.this.items);
                         }
                     });

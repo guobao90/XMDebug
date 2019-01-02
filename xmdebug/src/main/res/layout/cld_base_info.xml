@@ -80,36 +80,4 @@
 
     <include layout="@layout/cld_divider" />
 
-    <LinearLayout
-        android:id="@+id/cld_home_account_ll"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@drawable/cld_selector_default_white_pressed"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="@string/cld_account_info"
-            android:textColor="@color/cld_text_dark"
-            android:textSize="@dimen/cld_text_size_large" />
-
-        <TextView
-            android:id="@+id/cld_home_account_info_tv"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:drawableEnd="@drawable/cld_svg_icon_arrow_right_wrapper"
-            android:drawableRight="@drawable/cld_svg_icon_arrow_right_wrapper"
-            android:gravity="center_vertical"
-            android:textColor="@color/cld_text_light"
-            android:textSize="@dimen/cld_text_size_medium"
-            tools:text="我是用户名" />
-
-    </LinearLayout>
-
-    <include layout="@layout/cld_divider" />
-
 </LinearLayout>

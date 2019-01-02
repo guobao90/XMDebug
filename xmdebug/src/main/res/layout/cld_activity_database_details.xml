@@ -1,31 +1,29 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical">
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@android:color/white"
+                android:orientation="vertical">
 
     <include
-        android:id="@id/cld_title_bar"
-        layout="@layout/cld_title_bar" />
+        layout="@layout/cld_title_bar"/>
 
-    <com.chelun.libraries.clui.tab.ClTabsView
+    <com.leo.baseui.tabview.TabsView
         android:id="@+id/cld_database_tabs"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cld_title_bar"
+        android:layout_below="@id/navigationBar"
         app:gravity_mode="scrollable"
         app:show_line="true"
         app:text_default_size="@dimen/cld_text_size_large"
-        app:text_select_size="@dimen/cld_text_size_large">
+        app:text_select_size="@dimen/cld_text_size_large"/>
 
-    </com.chelun.libraries.clui.tab.ClTabsView>
 
     <android.support.v4.view.ViewPager
         android:id="@+id/cld_database_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/cld_database_tabs" />
+        android:layout_below="@id/cld_database_tabs"/>
 
 </RelativeLayout>

@@ -3,12 +3,13 @@ package com.leo.xmdebug;
 import android.support.v4.app.Fragment;
 import android.view.View;
 
+import com.leo.baseui.ui.BaseActivity;
 import com.leo.xmdebug.detail.DebugInfoDetail;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
 
-public abstract class DebugInfoDetailsActivity extends DebugBaseActivity {
+public abstract class DebugInfoDetailsActivity extends BaseActivity {
     private LinkedList<DebugInfoDetailsFragment> fragments = new LinkedList();
 
     public DebugInfoDetailsActivity() {

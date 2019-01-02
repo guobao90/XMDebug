@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical">
+              xmlns:app="http://schemas.android.com/apk/res-auto"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
 
-    <include layout="@layout/cld_title_bar" />
+    <com.leo.baseui.toolbar.GBToolbar
+        android:id="@id/navigationBar"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        app:GBToolBarHideNavigationIcon="true"/>
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/content_rv"

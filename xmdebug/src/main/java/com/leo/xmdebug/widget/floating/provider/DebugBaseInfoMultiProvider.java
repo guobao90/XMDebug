@@ -56,8 +56,6 @@ public class DebugBaseInfoMultiProvider extends ItemViewProvider<DebugBaseInfoMu
         private TextView appInfoTv;
         private LinearLayout deviceInfoLl;
         private TextView deviceInfoTv;
-        private LinearLayout accountInfoLl;
-        private TextView accountInfoTv;
 
         BaseInfoViewHolder(View itemView) {
             super(itemView);
@@ -65,8 +63,6 @@ public class DebugBaseInfoMultiProvider extends ItemViewProvider<DebugBaseInfoMu
             this.appInfoTv = (TextView)itemView.findViewById(R.id.cld_home_app_info_tv);
             this.deviceInfoLl = (LinearLayout)itemView.findViewById(R.id.cld_home_device_ll);
             this.deviceInfoTv = (TextView)itemView.findViewById(R.id.cld_home_device_info_tv);
-            this.accountInfoLl = (LinearLayout)itemView.findViewById(R.id.cld_home_account_ll);
-            this.accountInfoTv = (TextView)itemView.findViewById(R.id.cld_home_account_info_tv);
         }
     }
 }

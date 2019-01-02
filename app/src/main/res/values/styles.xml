@@ -1,11 +1,60 @@
-<resources>
+<resources xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <style name="AppBaseTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <!-- App bar 底色 -->
+        <item name="colorPrimary">@android:color/white</item>
+        <!-- 顶部状态底色 -->
+        <item name="colorPrimaryDark">@android:color/black</item>
+        <!--<item name="actionBarItemBackground">@drawable/selector_titlebar_item_bg</item>-->
+        <!-- 主窗体底色 -->
+        <!-- 自定义toolbar style -->
+        <item name="toolbarStyle">@style/ToolbarStyle</item>
+        <item name="clToolbarStyle">@style/GBToolbar</item>
+        <item name="actionBarSize">48dp</item>
+        <item name="android:buttonStyle">@android:style/Widget.Button</item>
+        <item name="android:buttonStyleSmall">@android:style/Widget.Button.Small</item>
+        <item name="android:buttonStyleInset">@android:style/Widget.Button.Inset</item>
+        <item name="android:buttonStyleToggle">@android:style/Widget.Button.Toggle</item>
+    </style>
+
+    <style name="GBToolbar">
+        <item name="GBToolBarResize">false</item>
+        <item name="GBToolBarBackground">@color/white</item>
+        <item name="GBToolBarNavigationIcon">@drawable/selector_generic_back_btn</item>
+        <item name="GBToolBarTitleTextAppearance">@style/customToolbarTitleTextAppearance</item>
+        <!-- 是否显示底部分割线-->
+        <item name="GBToolBarShowDivider">true</item>
+        <item name="GBToolBarDividerColor">@color/focused_bg</item>
+        <!-- 部分割线颜色-->
+        <!-- 是否所有标题居中 -->
+        <item name="GBToolBarCenterTitle">false</item>
+    </style>
+
+    <style name="customToolbarTitleTextAppearance" parent="TextAppearance.Widget.AppCompat.Toolbar.Title">
+        <item name="android:textStyle">normal</item>
+        <item name="android:textColor">@android:color/black</item>
+        <item name="android:textSize">19sp</item>
+    </style>
+
+    <style name="ToolbarStyle" parent="Widget.AppCompat.Toolbar">
+        <item name="android:minHeight">48dp</item>
+        <item name="titleTextAppearance">@style/customToolbarTitleTextAppearance</item>
+        <item name="contentInsetStart">0dp</item>
+        <item name="contentInsetStartWithNavigation">0dp</item>
+        <item name="titleMargin">0dp</item>
+    </style>
 
     <!-- Base application theme. -->
-    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
+    <style name="AppTheme" parent="AppBaseTheme">
+    </style>
+
+    <style name="custom_dialog_style" parent="AppBaseTheme">
+        <item name="android:windowFrame">@null</item>
+        <item name="android:windowNoTitle">true</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
+        <item name="android:windowIsFloating">true</item>
+        <item name="android:windowContentOverlay">@null</item>
     </style>
 
 </resources>

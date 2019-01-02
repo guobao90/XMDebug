@@ -9,8 +9,9 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.view.ViewPager;
 
+import com.leo.baseui.dialog.TipsBaseDialog;
 import com.leo.baseui.tabview.TabsView;
-import com.leo.xmdebug.DebugBaseActivity;
+import com.leo.baseui.ui.BaseActivity;
 import com.leo.xmdebug.DebugBaseFragment;
 import com.leo.xmdebug.R;
 import com.leo.xmdebug.base.DebugInfoDetailsDataProvider;
@@ -22,7 +23,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-public class DebugDatabaseDetailsActivity extends DebugBaseActivity {
+public class DebugDatabaseDetailsActivity extends BaseActivity {
     private static final String EXTRA_DETAIL_INFO = "detailInfo";
     private List<DebugBaseFragment> fragments;
     private TabsView tabs;
@@ -31,6 +32,7 @@ public class DebugDatabaseDetailsActivity extends DebugBaseActivity {
     private DebugDatabaseModel database;
     private List<String> titles;
     private Handler handler;
+    private TipsBaseDialog tipDialog;
 
     public DebugDatabaseDetailsActivity() {
     }
@@ -51,6 +53,7 @@ public class DebugDatabaseDetailsActivity extends DebugBaseActivity {
     }
 
     private void initViews() {
+        tipDialog = new TipsBaseDialog(this);
         this.tabs = (TabsView) this.findViewById(R.id.cld_database_tabs);
         this.viewPager = (ViewPager)this.findViewById(R.id.cld_database_container);
     }

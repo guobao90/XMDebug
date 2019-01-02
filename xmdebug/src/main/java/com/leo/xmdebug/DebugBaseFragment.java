@@ -4,8 +4,8 @@ import android.os.Build;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 
-import com.leo.baseui.dialog.TipsBaseDialog;
 import com.leo.baseui.toolbar.GBToolbar;
+import com.leo.baseui.ui.BaseActivity;
 
 public abstract class DebugBaseFragment extends Fragment {
     public DebugBaseFragment() {
@@ -25,10 +25,6 @@ public abstract class DebugBaseFragment extends Fragment {
     }
 
     public GBToolbar getToolbar() {
-        return ((DebugBaseActivity)this.getActivity()).getToolbar();
-    }
-
-    protected TipsBaseDialog getTipsBaseDialog() {
-        return ((DebugBaseActivity)this.getActivity()).tipDialog;
+        return ((BaseActivity)this.getActivity()).getToolbar();
     }
 }

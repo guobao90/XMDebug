@@ -43,30 +43,6 @@
     <include layout="@layout/cld_divider" />
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@android:color/white"
-        android:gravity="center_vertical"
-        android:orientation="horizontal"
-        android:padding="10dp">
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:textColor="@color/cld_text_dark"
-            android:textSize="@dimen/cld_text_size_large" />
-
-        <Switch
-            android:id="@+id/cld_welfare_pid"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
-
-    </LinearLayout>
-
-    <include layout="@layout/cld_divider" />
-
-    <LinearLayout
         android:id="@+id/cld_statistic_switch_ll"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

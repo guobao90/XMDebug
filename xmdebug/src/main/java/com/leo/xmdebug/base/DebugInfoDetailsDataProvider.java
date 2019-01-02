@@ -55,105 +55,102 @@ public class DebugInfoDetailsDataProvider {
         ArrayList list = new ArrayList();
 
         try {
-            switch(detail.getType()) {
-            case APP_ABSTRACT:
-                list.addAll(this.getAppAbstract());
-                break;
-            case APP_NAME:
-                list.add(this.getAppName());
-                break;
-            case PACKAGE_NAME:
-                list.add(this.getPackageName());
-                break;
-            case VERSION:
-                list.add(this.getVersion());
-                break;
-            case VERSION_CODE:
-                list.add(this.getVersionCode());
-                break;
-            case MARKET:
-                list.add(this.getMarket());
-                break;
-            case FIRST_INSTALL_TIME:
-                list.add(this.getFirstInstallTime());
-                break;
-            case LAST_UPDATE_TIME:
-                list.add(this.getLastUpdateTime());
-                break;
-            case ACTIVITIES_SUMMARY:
-                list.add(this.getActivitiesSummary());
-                break;
-            case ACTIVITIES:
-                list.addAll(this.getActivities());
-                break;
-            case SERVICES_SUMMARY:
-                list.add(this.getServicesSummary());
-                break;
-            case SERVICES:
-                list.addAll(this.getServices());
-                break;
-            case RECEIVERS_SUMMARY:
-                list.add(this.getReceiversSummary());
-                break;
-            case RECEIVERS:
-                list.addAll(this.getReceivers());
-                break;
-            case PROVIDERS_SUMMARY:
-                list.add(this.getProvidersSummary());
-                break;
-            case PROVIDERS:
-                list.addAll(this.getProviders());
-                break;
-            case PERMISSIONS_SUMMARY:
-                list.add(this.getPermissionsSummary());
-                break;
-            case PERMISSIONS:
-                list.addAll(this.getPermissions());
-                break;
-            case INSTALLED_APP_SUMMARY:
-                list.add(this.getInstalledAppSummary());
-                break;
-            case INSTALLED_APP:
-                list.addAll(this.getInstalledApp());
-                break;
-            case DEVICE_ABSTRACT:
-                list.addAll(this.getDeviceAbstract());
-                break;
-            case ANDROID_VERSION:
-                list.add(this.getBuildVersion());
-                break;
-            case MODEL:
-                list.add(this.getDeviceModel());
-                break;
-            case RESOLUTION:
-                list.add(this.getResolution());
-                break;
-            case ROOT:
-                list.add(this.getRoot());
-                break;
-            case ABI:
-                list.add(this.getABIs());
-                break;
-            case SHARED_PREFERENCE_LIST:
-                list.addAll(this.getSharedPreferenceList());
-                break;
-            case SHARED_PREFERENCE_DETAIL:
-                list.addAll(this.getSharedPreferenceDetails(detail.getStringExtra()));
-                break;
-            case FILES:
-                list.addAll(this.getFiles(detail.getStringExtra()));
-                break;
-            case DATABASE_LIST:
-                list.addAll(this.getDataBaseList());
-                break;
-            case DATABASE_DETAILS:
-                list.add(this.getDataBaseDetails(detail.getStringExtra()));
-                break;
-            case CRASH_LOG_LIST:
-                list.addAll(this.getCrashLogs());
-                break;
-            case CRASH_LOG_DETAIL:
-                list.add(this.getCrashLogDetail(detail.getStringExtra()));
+            switch (detail.getType()) {
+                case APP_ABSTRACT:
+                    list.addAll(this.getAppAbstract());
+                    break;
+                case APP_NAME:
+                    list.add(this.getAppName());
+                    break;
+                case PACKAGE_NAME:
+                    list.add(this.getPackageName());
+                    break;
+                case VERSION:
+                    list.add(this.getVersion());
+                    break;
+                case VERSION_CODE:
+                    list.add(this.getVersionCode());
+                    break;
+                case FIRST_INSTALL_TIME:
+                    list.add(this.getFirstInstallTime());
+                    break;
+                case LAST_UPDATE_TIME:
+                    list.add(this.getLastUpdateTime());
+                    break;
+                case ACTIVITIES_SUMMARY:
+                    list.add(this.getActivitiesSummary());
+                    break;
+                case ACTIVITIES:
+                    list.addAll(this.getActivities());
+                    break;
+                case SERVICES_SUMMARY:
+                    list.add(this.getServicesSummary());
+                    break;
+                case SERVICES:
+                    list.addAll(this.getServices());
+                    break;
+                case RECEIVERS_SUMMARY:
+                    list.add(this.getReceiversSummary());
+                    break;
+                case RECEIVERS:
+                    list.addAll(this.getReceivers());
+                    break;
+                case PROVIDERS_SUMMARY:
+                    list.add(this.getProvidersSummary());
+                    break;
+                case PROVIDERS:
+                    list.addAll(this.getProviders());
+                    break;
+                case PERMISSIONS_SUMMARY:
+                    list.add(this.getPermissionsSummary());
+                    break;
+                case PERMISSIONS:
+                    list.addAll(this.getPermissions());
+                    break;
+                case INSTALLED_APP_SUMMARY:
+                    list.add(this.getInstalledAppSummary());
+                    break;
+                case INSTALLED_APP:
+                    list.addAll(this.getInstalledApp());
+                    break;
+                case DEVICE_ABSTRACT:
+                    list.addAll(this.getDeviceAbstract());
+                    break;
+                case ANDROID_VERSION:
+                    list.add(this.getBuildVersion());
+                    break;
+                case MODEL:
+                    list.add(this.getDeviceModel());
+                    break;
+                case RESOLUTION:
+                    list.add(this.getResolution());
+                    break;
+                case ROOT:
+                    list.add(this.getRoot());
+                    break;
+                case ABI:
+                    list.add(this.getABIs());
+                    break;
+                case SHARED_PREFERENCE_LIST:
+                    list.addAll(this.getSharedPreferenceList());
+                    break;
+                case SHARED_PREFERENCE_DETAIL:
+                    list.addAll(this.getSharedPreferenceDetails(detail.getStringExtra()));
+                    break;
+                case FILES:
+                    list.addAll(this.getFiles(detail.getStringExtra()));
+                    break;
+                case DATABASE_LIST:
+                    list.addAll(this.getDataBaseList());
+                    break;
+                case DATABASE_DETAILS:
+                    list.add(this.getDataBaseDetails(detail.getStringExtra()));
+                    break;
+                case CRASH_LOG_LIST:
+                    list.addAll(this.getCrashLogs());
+                    break;
+                case CRASH_LOG_DETAIL:
+                    list.add(this.getCrashLogDetail(detail.getStringExtra()));
             }
 
             return list;
@@ -257,7 +254,7 @@ public class DebugInfoDetailsDataProvider {
         ActivityInfo[] var3 = packageInfo.activities;
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             ActivityInfo activityInfo = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(activityInfo.name);
@@ -272,7 +269,7 @@ public class DebugInfoDetailsDataProvider {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 4);
         model.setFirst("Services");
-        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.services.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.services != null ? packageInfo.services.length : 0)}));
         model.setNextTitle("Services");
         ArrayList<DebugInfoDetail> list = new ArrayList();
         list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.SERVICES));
@@ -286,7 +283,7 @@ public class DebugInfoDetailsDataProvider {
         ServiceInfo[] var3 = packageInfo.services;
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             ServiceInfo serviceInfo = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(serviceInfo.name);
@@ -300,7 +297,7 @@ public class DebugInfoDetailsDataProvider {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 2);
         model.setFirst("Receivers");
-        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.receivers.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.receivers == null ? 0:packageInfo.receivers.length)}));
         model.setNextTitle("Receivers");
         ArrayList<DebugInfoDetail> list = new ArrayList();
         list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.RECEIVERS));
@@ -314,7 +311,7 @@ public class DebugInfoDetailsDataProvider {
         ActivityInfo[] var3 = packageInfo.receivers;
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             ActivityInfo activityInfo = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(activityInfo.name);
@@ -328,7 +325,7 @@ public class DebugInfoDetailsDataProvider {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         PackageInfo packageInfo = this.packageManager.getPackageInfo(this.packageName, 8);
         model.setFirst("Providers");
-        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.providers.length)}));
+        model.setSecond(this.context.getString(R.string.cld_a, new Object[]{String.valueOf(packageInfo.providers == null ? 0 : packageInfo.providers.length)}));
         model.setNextTitle("Providers");
         ArrayList<DebugInfoDetail> list = new ArrayList();
         list.add(new DebugInfoDetail(DebugInfoDetail.InfoType.PROVIDERS));
@@ -342,7 +339,7 @@ public class DebugInfoDetailsDataProvider {
         ProviderInfo[] var3 = packageInfo.providers;
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             ProviderInfo providerInfo = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(providerInfo.name);
@@ -370,7 +367,7 @@ public class DebugInfoDetailsDataProvider {
         String[] var3 = packageInfo.requestedPermissions;
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             String permission = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             model.setFirst(permission);
@@ -387,8 +384,8 @@ public class DebugInfoDetailsDataProvider {
         int count = 0;
         Iterator var4 = packages.iterator();
 
-        while(var4.hasNext()) {
-            PackageInfo packageInfo = (PackageInfo)var4.next();
+        while (var4.hasNext()) {
+            PackageInfo packageInfo = (PackageInfo) var4.next();
             if ((packageInfo.applicationInfo.flags & 1) == 0) {
                 ++count;
             }
@@ -408,8 +405,8 @@ public class DebugInfoDetailsDataProvider {
         List<DebugInfoDetailsInstalledAppModel> apps = new ArrayList();
         Iterator var3 = packages.iterator();
 
-        while(var3.hasNext()) {
-            PackageInfo packageInfo = (PackageInfo)var3.next();
+        while (var3.hasNext()) {
+            PackageInfo packageInfo = (PackageInfo) var3.next();
             if ((packageInfo.applicationInfo.flags & 1) == 0) {
                 DebugInfoDetailsInstalledAppModel model = new DebugInfoDetailsInstalledAppModel();
                 model.setAppIcon(packageInfo.applicationInfo.loadIcon(this.packageManager));
@@ -480,7 +477,7 @@ public class DebugInfoDetailsDataProvider {
             String[] var3 = Build.SUPPORTED_ABIS;
             int var4 = var3.length;
 
-            for(int var5 = 0; var5 < var4; ++var5) {
+            for (int var5 = 0; var5 < var4; ++var5) {
                 String abi = var3[var5];
                 abis = abis + abi + "\n";
             }
@@ -509,7 +506,7 @@ public class DebugInfoDetailsDataProvider {
         });
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             File spf = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             String name = spf.getName().substring(0, spf.getName().lastIndexOf("."));
@@ -531,18 +528,18 @@ public class DebugInfoDetailsDataProvider {
         SharedPreferences spf = this.context.getSharedPreferences(filename.substring(0, filename.lastIndexOf(".")), 0);
 
         DebugInfoDetailsNormalModel model;
-        for(Iterator var4 = spf.getAll().entrySet().iterator(); var4.hasNext(); list.add(model)) {
-            Map.Entry<String, ?> entry = (Map.Entry)var4.next();
+        for (Iterator var4 = spf.getAll().entrySet().iterator(); var4.hasNext(); list.add(model)) {
+            Map.Entry<String, ?> entry = (Map.Entry) var4.next();
             model = new DebugInfoDetailsNormalModel();
-            model.setFirst((String)entry.getKey());
+            model.setFirst((String) entry.getKey());
             if (!(entry.getValue() instanceof Set)) {
                 model.setSecond(String.valueOf(entry.getValue()));
             } else {
                 StringBuilder sb = new StringBuilder();
-                Iterator var8 = ((Set)entry.getValue()).iterator();
+                Iterator var8 = ((Set) entry.getValue()).iterator();
 
-                while(var8.hasNext()) {
-                    String str = (String)var8.next();
+                while (var8.hasNext()) {
+                    String str = (String) var8.next();
                     sb.append(str);
                     sb.append("\n");
                 }
@@ -560,7 +557,7 @@ public class DebugInfoDetailsDataProvider {
         File[] var4 = file.listFiles();
         int var5 = var4.length;
 
-        for(int var6 = 0; var6 < var5; ++var6) {
+        for (int var6 = 0; var6 < var5; ++var6) {
             File subFile = var4[var6];
             DebugFilesMultiModel model = new DebugFilesMultiModel();
             model.setFile(subFile);
@@ -580,7 +577,7 @@ public class DebugInfoDetailsDataProvider {
         });
         int var4 = var3.length;
 
-        for(int var5 = 0; var5 < var4; ++var5) {
+        for (int var5 = 0; var5 < var4; ++var5) {
             File file = var3[var5];
             DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
             String name = file.getName();
@@ -607,25 +604,25 @@ public class DebugInfoDetailsDataProvider {
         ArrayList tables = new ArrayList();
 
         try {
-            SQLiteDatabase database = SQLiteDatabase.openDatabase(this.context.getDatabasePath(databaseName).getAbsolutePath(), (SQLiteDatabase.CursorFactory)null, 1);
-            Cursor tableCursor = database.rawQuery("select name from sqlite_master where type='table' order by name", (String[])null);
+            SQLiteDatabase database = SQLiteDatabase.openDatabase(this.context.getDatabasePath(databaseName).getAbsolutePath(), (SQLiteDatabase.CursorFactory) null, 1);
+            Cursor tableCursor = database.rawQuery("select name from sqlite_master where type='table' order by name", (String[]) null);
             ArrayList tableNames = new ArrayList();
 
-            while(tableCursor.moveToNext()) {
+            while (tableCursor.moveToNext()) {
                 tableNames.add(tableCursor.getString(0));
             }
 
             tableCursor.close();
             Iterator var7 = tableNames.iterator();
 
-            while(var7.hasNext()) {
-                String tableName = (String)var7.next();
-                Cursor cursor = database.query(tableName, (String[])null, (String)null, (String[])null, (String)null, (String)null, (String)null);
+            while (var7.hasNext()) {
+                String tableName = (String) var7.next();
+                Cursor cursor = database.query(tableName, (String[]) null, (String) null, (String[]) null, (String) null, (String) null, (String) null);
                 DebugDatabaseModel.Table table = new DebugDatabaseModel.Table();
                 table.setName(tableName);
                 ArrayList data = new ArrayList();
 
-                while(cursor.moveToNext()) {
+                while (cursor.moveToNext()) {
                     if (table.getColumns() == null || table.getColumns().length == 0) {
                         table.setColumns(cursor.getColumnNames());
                     }
@@ -633,23 +630,23 @@ public class DebugInfoDetailsDataProvider {
                     String[] var12 = cursor.getColumnNames();
                     int var13 = var12.length;
 
-                    for(int var14 = 0; var14 < var13; ++var14) {
+                    for (int var14 = 0; var14 < var13; ++var14) {
                         String column = var12[var14];
-                        switch(cursor.getType(cursor.getColumnIndex(column))) {
-                        case 0:
-                            data.add((Object)null);
-                            break;
-                        case 1:
-                            data.add(cursor.getLong(cursor.getColumnIndex(column)));
-                            break;
-                        case 2:
-                            data.add(cursor.getFloat(cursor.getColumnIndex(column)));
-                            break;
-                        case 3:
-                            data.add(cursor.getString(cursor.getColumnIndex(column)));
-                            break;
-                        case 4:
-                            data.add(cursor.getBlob(cursor.getColumnIndex(column)));
+                        switch (cursor.getType(cursor.getColumnIndex(column))) {
+                            case 0:
+                                data.add((Object) null);
+                                break;
+                            case 1:
+                                data.add(cursor.getLong(cursor.getColumnIndex(column)));
+                                break;
+                            case 2:
+                                data.add(cursor.getFloat(cursor.getColumnIndex(column)));
+                                break;
+                            case 3:
+                                data.add(cursor.getString(cursor.getColumnIndex(column)));
+                                break;
+                            case 4:
+                                data.add(cursor.getBlob(cursor.getColumnIndex(column)));
                         }
                     }
                 }
@@ -689,7 +686,7 @@ public class DebugInfoDetailsDataProvider {
             });
             int var4 = var3.length;
 
-            for(int var5 = 0; var5 < var4; ++var5) {
+            for (int var5 = 0; var5 < var4; ++var5) {
                 File logFile = var3[var5];
                 DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
                 String filename = logFile.getName();
@@ -730,7 +727,7 @@ public class DebugInfoDetailsDataProvider {
                 StringBuilder sb = new StringBuilder();
 
                 String line;
-                while((line = bufferedReader.readLine()) != null) {
+                while ((line = bufferedReader.readLine()) != null) {
                     sb.append(line);
                     sb.append("\n");
                 }

@@ -33,7 +33,7 @@ public class DebugFilesMultiProvider extends ItemViewProvider<DebugFilesMultiMod
         return new DebugFilesMultiProvider.DebugFilesViewHolder(inflater.inflate(R.layout.cld_files_item, parent, false));
     }
 
-    protected void onBindViewHolder(@NonNull DebugFilesMultiProvider.DebugFilesViewHolder holder, @NonNull final DebugFilesMultiModel model) {
+    protected void onBindViewHolder(@NonNull final DebugFilesMultiProvider.DebugFilesViewHolder holder, @NonNull final DebugFilesMultiModel model) {
         holder.filenameTextView.setText(model.getFile().getName());
         if (model.getFile().isFile()) {
             holder.fileIcon.setImageResource(R.drawable.cld_svg_file);
@@ -43,7 +43,7 @@ public class DebugFilesMultiProvider extends ItemViewProvider<DebugFilesMultiMod
             holder.fileDetailsTextView.setText(details);
             holder.filesLinearLayout.setOnClickListener(new View.OnClickListener() {
                 public void onClick(View v) {
-                    DebugOpenFileUtil.openFile(DebugFilesMultiProvider.this.activity, model.getFile());
+                    DebugOpenFileUtil.openFile(holder.itemView.getContext(), model.getFile());
                 }
             });
         } else {
