@@ -45,6 +45,7 @@ class DebugHomeActivity : BaseActivity() {
     private fun initData() {
         saveData()
 
+
         this.adapter = DebugListAdapter()
         this.adapter.register(DebugBaseInfoMultiModel::class.java, DebugBaseInfoMultiProvider(this))
         this.adapter.register(DebugSwitchMultiModel::class.java, DebugSwitchMultiProvider(this))
