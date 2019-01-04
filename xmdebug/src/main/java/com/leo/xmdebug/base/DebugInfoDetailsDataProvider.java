@@ -210,7 +210,7 @@ public class DebugInfoDetailsDataProvider {
     private DebugInfoDetailsNormalModel getMarket() {
         DebugInfoDetailsNormalModel model = new DebugInfoDetailsNormalModel();
         model.setFirst("渠道");
-        model.setSecond(AndroidUtils.getUmengChannel(this.context));
+        model.setSecond("");
         return model;
     }
 

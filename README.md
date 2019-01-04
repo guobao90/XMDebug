@@ -1,3 +1,14 @@
+---
+title: Debug tools overview
+date: 2018-11-30 20:03:00
+categories:
+- Debug
+tags:
+- zhangguobao
+---
+
+
+
 <p align="center">
 
 <a href="https://bintray.com/leo90/maven/debug">
@@ -6,19 +17,21 @@
 </p>
 
 
-> **[XMDebug](https://zhipingyang.github.io/XYDebugView)** is a debug tool to help developer
-
-## ScreenShot
-![3e0d3e8f72b6ba5986465ab5097dd882.png](evernotecid://FACBD128-7579-4D44-88C6-00C546DEF615/appyinxiangcom/13346904/ENResource/p15880)
-![12ebbae3bd5d4da22a71e6756af29366.png](evernotecid://FACBD128-7579-4D44-88C6-00C546DEF615/appyinxiangcom/13346904/ENResource/p15881)
+> **[XMDebug](https://guobao90.github.io/2018/11/30/debug)** is a debug tool to help developer 
 
 
 
-Download
+
+
+## 1.ScreenShot
+
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/29169069.jpg)
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/50439004.jpg)
+
+
+## 2.Download
 --------
-For detailed instructions and requirements, see Glide's [download and setup docs page].
-
-You can download a jar from GitHub's [releases page].
+You can download from GitHub's [releases page].
 
 Or use Gradle:
 
@@ -33,12 +46,52 @@ dependencies {
 }
 ```
 
-## Use
-#### App Info
-![52dfd0b0baff5c431c7aef46073dba67.png](evernotecid://FACBD128-7579-4D44-88C6-00C546DEF615/appyinxiangcom/13346904/ENResource/p15882)
 
-You can see Activities, Services , Receivers ,Providers,Permissions colletions . Some Detail of your App like ,verson ,version code .
+## 3.How do I Use
+### 3.1 App Info 
+You can see Activities, Services , Receivers ,Providers,Permissions colletions . Some Detail of your App like ,verson ,version code . 
 
-In Activities your can see All Activity . Press the item your can jump to the corresponding Activity .
+In Activities your can see All Activity . Press the item your can jump to the corresponding Activity . 
+#### 3.1.1 Activities 
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/67457828.jpg)
 
-####
+#### 3.1.2 Permissions .See the detail of Permissions
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/75480764.jpg)
+
+### 3.2 Exception Reports
+You can see the bugs reports with the detail of code and the screenshot of the exception happen
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/46712449.jpg)
+
+### 3.3 Local Data
+Detail of SharedPreference ,Sqlite, local Cache. You can also clean the data through this debug tools
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/49438500.jpg)
+
+### 3.4 Toast Activity Name
+Switch On Show Activity Name ,You can see the toast of Activity of .
+![](http://pktfce9ot.bkt.clouddn.com/19-1-5/60090897.jpg)
+
+
+## 4.Start
+### 4.1 First ... emm ,you should implementation the library
+### 4.2 In your custom application ,put the code below
+
+	 override fun onCreate() {
+        super.onCreate()
+        DebugCrashHandler.setCrashHandler(this)
+    }
+    
+    these code use to capture the exceptions
+    
+### 4.3 put the DebugHomeActivity entrance in somewhere nobody know 
+
+## GitPage
+
+https://guobao90.github.io/2018/11/30/debug
+
+## Author
+
+leo, guobao9006@gmail.com
+
+## License
+
+XYDebugView is available under the MIT license. See the LICENSE file for more info.
