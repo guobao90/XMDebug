@@ -17,7 +17,7 @@ tags:
 </p>
 
 
-> **[XMDebug](https://guobao90.github.io/2018/11/30/debug)** is a debug tool to help developer 
+> **[XMDebug](https://guobao90.github.io/2018/11/30/debug/)** is a debug tool to help developer
 
 
 
@@ -47,11 +47,11 @@ dependencies {
 
 
 ## 3.How do I Use
-### 3.1 App Info 
-You can see Activities, Services , Receivers ,Providers,Permissions colletions . Some Detail of your App like ,verson ,version code . 
+### 3.1 App Info
+You can see Activities, Services , Receivers ,Providers,Permissions colletions . Some Detail of your App like ,verson ,version code .
 
-In Activities your can see All Activity . Press the item your can jump to the corresponding Activity . 
-#### 3.1.1 Activities 
+In Activities your can see All Activity . Press the item your can jump to the corresponding Activity .
+#### 3.1.1 Activities
 ![](http://pktfce9ot.bkt.clouddn.com/19-1-5/67457828.jpg)
 
 #### 3.1.2 Permissions .See the detail of Permissions
@@ -78,14 +78,14 @@ Switch On Show Activity Name ,You can see the toast of Activity of .
         super.onCreate()
         DebugCrashHandler.setCrashHandler(this)
     }
-    
+
     these code use to capture the exceptions
-    
-### 4.3 put the DebugHomeActivity entrance in somewhere nobody know 
+
+### 4.3 put the DebugHomeActivity entrance in somewhere nobody know
 
 ## GitPage
 
-https://guobao90.github.io/2018/11/30/debug
+https://guobao90.github.io/2018/11/30/debug/
 
 ## Author
 
