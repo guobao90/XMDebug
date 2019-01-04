@@ -9,6 +9,7 @@ import com.leo.baseui.ui.BaseActivity;
 
 public abstract class DebugBaseFragment extends Fragment {
     public DebugBaseFragment() {
+
     }
 
     protected final boolean isActivityDead() {
