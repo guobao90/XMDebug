@@ -24,9 +24,8 @@ tags:
 
 
 ## 1.ScreenShot
-
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/29169069.jpg)
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/50439004.jpg)
+ <img src="http://pktfce9ot.bkt.clouddn.com/19-1-5/29169069.jpg" width = "300" height = "450" alt="图片名称" align=center />
+ <img src="http://pktfce9ot.bkt.clouddn.com/19-1-5/50439004.jpg" width = "300" height = "450" alt="图片名称" align=center />
 
 
 ## 2.Download
