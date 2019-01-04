@@ -1,14 +1,3 @@
----
-title: Debug tools overview
-date: 2018-11-30 20:03:00
-categories:
-- Debug
-tags:
-- zhangguobao
----
-
-
-
 <p align="center">
 
 <a href="https://bintray.com/leo90/maven/debug">
@@ -24,8 +13,12 @@ tags:
 
 
 ## 1.ScreenShot
+
+<p align="center">
+
  <img src="http://pktfce9ot.bkt.clouddn.com/19-1-5/29169069.jpg" width = "300" height = "450" alt="图片名称" align=center />
  <img src="http://pktfce9ot.bkt.clouddn.com/19-1-5/50439004.jpg" width = "300" height = "450" alt="图片名称" align=center />
+</p>
 
 
 ## 2.Download
