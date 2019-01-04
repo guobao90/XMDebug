@@ -22,7 +22,7 @@
 
 
 ## 2.Download
---------
+
 You can download from GitHub's [releases page].
 
 Or use Gradle:
@@ -86,4 +86,4 @@ leo, guobao9006@gmail.com
 
 ## License
 
-XYDebugView is available under the MIT license. See the LICENSE file for more info.
+XMDebug is available under the MIT license. See the LICENSE file for more info.
