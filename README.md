@@ -1,3 +1,5 @@
+
+
 <p align="center">
 
 <a href="https://bintray.com/leo90/maven/debug">
@@ -13,7 +15,6 @@
 
 
 ## 1.ScreenShot
-
 <p align="center">
 
  <img src="http://pktfce9ot.bkt.clouddn.com/19-1-5/29169069.jpg" width = "300" height = "450" alt="图片名称" align=center />
@@ -22,7 +23,6 @@
 
 
 ## 2.Download
-
 You can download from GitHub's [releases page].
 
 Or use Gradle:
@@ -60,7 +60,9 @@ Detail of SharedPreference ,Sqlite, local Cache. You can also clean the data thr
 
 ### 3.4 Toast Activity Name
 Switch On Show Activity Name ,You can see the toast of Activity of .
+<p align="left">
 ![](http://pktfce9ot.bkt.clouddn.com/19-1-5/60090897.jpg)
+</p>
 
 
 ## 4.Start
