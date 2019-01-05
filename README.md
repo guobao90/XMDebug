@@ -60,9 +60,10 @@ Detail of SharedPreference ,Sqlite, local Cache. You can also clean the data thr
 
 ### 3.4 Toast Activity Name
 Switch On Show Activity Name ,You can see the toast of Activity of .
-<p align="left">
+
+<div align=left>
 ![](http://pktfce9ot.bkt.clouddn.com/19-1-5/60090897.jpg)
-</p>
+</div>
 
 
 ## 4.Start
