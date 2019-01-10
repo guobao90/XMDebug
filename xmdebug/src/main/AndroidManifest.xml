@@ -5,6 +5,8 @@
         android:allowBackup="true"
         android:supportsRtl="true"
         >
+
+
         <activity
             android:name=".DebugHomeActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
