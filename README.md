@@ -11,9 +11,6 @@
 > **[XMDebug](https://guobao90.github.io/2018/11/30/debug/)** is a debug tool to help developer
 
 
-
-
-
 ## 1.ScreenShot
 <p align="center">
 
