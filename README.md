@@ -41,10 +41,10 @@ You can see Activities, Services , Receivers ,Providers,Permissions colletions .
 
 In Activities your can see All Activity . Press the item your can jump to the corresponding Activity .
 #### 3.1.1 Activities
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/67457828.jpg)
+![](https://github.com/guobao90/XMDebug/blob/master/screenshot/device20190506213306_activit.gif?raw=true)
 
 #### 3.1.2 Permissions .See the detail of Permissions
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/75480764.jpg)
+![](https://github.com/guobao90/XMDebug/blob/master/screenshot/device20190506213415_permiss.gif?raw=true)
 
 ### 3.2 Exception Reports
 You can see the bugs reports with the detail of code and the screenshot of the exception happen
@@ -57,7 +57,7 @@ Detail of SharedPreference ,Sqlite, local Cache. You can also clean the data thr
 ### 3.4 Toast Activity Name
 Switch On Show Activity Name ,You can see the toast of Activity of .
 
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/60090897.jpg)
+![](https://github.com/guobao90/XMDebug/blob/master/screenshot/device20190506213948_toast.gif?raw=true)
 
 
 ## 4.Start
