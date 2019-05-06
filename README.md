@@ -13,11 +13,10 @@
 
 ## 1.ScreenShot
 <p align="center">
-
  <img src="https://github.com/guobao90/XMDebug/blob/master/device-2019-05-06-210419.png?raw=true" width = "300" height = "534" alt="图片名称" align=center />
  <img src="https://github.com/guobao90/XMDebug/blob/master/device-2019-05-06-210443.png?raw=true" width = "300" height = "534" alt="图片名称" align=center />
-</p>
 
+You can download [apk](https://github.com/guobao90/XMDebug/blob/master/app-release.apk)  sample 
 
 ## 2.Download
 You can download from GitHub's [releases page].
