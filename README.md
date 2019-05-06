@@ -48,11 +48,11 @@ In Activities your can see All Activity . Press the item your can jump to the co
 
 ### 3.2 Exception Reports
 You can see the bugs reports with the detail of code and the screenshot of the exception happen
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/46712449.jpg)
+![](https://github.com/guobao90/XMDebug/blob/master/screenshot/device20190506213510_exectio.gif?raw=true)
 
 ### 3.3 Local Data
 Detail of SharedPreference ,Sqlite, local Cache. You can also clean the data through this debug tools
-![](http://pktfce9ot.bkt.clouddn.com/19-1-5/49438500.jpg)
+![](https://github.com/guobao90/XMDebug/blob/master/screenshot/device20190506214920_data.gif?raw=true)
 
 ### 3.4 Toast Activity Name
 Switch On Show Activity Name ,You can see the toast of Activity of .
